@@ -59,7 +59,7 @@ function Navbar() {
 
 
     return (
-        <nav className={`ss:w-full w-[100%] flex justify-between items-center navbar bg-primary`}>
+        <nav className={`w-full flex justify-between items-center navbar bg-primary`}>
 
             <div>
                 <div className="flex justify-center items-center">
