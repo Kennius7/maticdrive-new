@@ -269,5 +269,19 @@ button:focus-visible {
   color: #09977c1a;
 }
 
+.hero-bg-image{
+  background-image: url("./assets/about-a.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: .2;
+  width: 100%;
+  height: 800px;
+}
 
+.navText1{
+  text-shadow: 0 0 7px rgb(42, 16, 185);
+}
 
+.navText2{
+  text-shadow: 0 0 1px rgb(219, 189, 15);
+}
