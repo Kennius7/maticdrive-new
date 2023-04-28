@@ -17,14 +17,14 @@ function Footer() {
                 <div className="flex flex-row justify-around items-center mx-32 mb-20">
                     <div className="flex flex-col mt-2">
                         <div className="w-[300px]">
-                            <Link to="/"><div className="text-white mb-8 font-bold text-[20px]">Matic <span className="text-gradient mb-8 font-bold text-[20px]">Drive</span></div></Link>
-                            <p className="text-white leading-[35px]">Develop your AV business model with our agile team, to create efficient AVs that can deliver optimum services anywhere in Africa.</p>
+                            <Link to="/"><div className="text-gray-400 mb-8 font-bold text-[20px]">Matic <span className="text-gradient mb-8 font-bold text-[20px]">Drive</span></div></Link>
+                            <p className="text-gray-400 leading-[35px]">Develop your AV business model with our agile team, to create efficient AVs that can deliver optimum services anywhere in Africa.</p>
                         </div>
                     </div>
                     <div className="flex flex-col mt-2">
                         <div className="flex flex-col">
-                            <h2 className="text-white mb-8 font-bold text-[20px]">Information</h2>
-                            <ul className="list-unstyled flex flex-col text-white">
+                            <h2 className="text-gray-400 mb-8 font-bold text-[20px]">Information</h2>
+                            <ul className="list-unstyled flex flex-col text-gray-400">
                                 <li className="mb-2"><Link to="/aboutus" >About</Link></li>
                                 <li className="mb-2"><Link to="/features" >Services</Link></li>
                                 <li className="mb-2"><Link to="/legal" >Privacy &amp; Cookies Policy</Link></li>
@@ -36,8 +36,8 @@ function Footer() {
 
                     <div className="flex flex-col mt-2">
                         <div className="flex flex-col">
-                            <h2 className="text-white font-bold mb-8 text-[20px]">Have a Questions?</h2>
-                            <div className="text-white flex flex-col">
+                            <h2 className="text-gray-400 font-bold mb-8 text-[20px]">Have a Questions?</h2>
+                            <div className="text-gray-400 flex flex-col">
                                 <ul>
                                     <li><a href="#" className="mb-4 -ml-6 flex flex-row justify-center items-center"><img src={phoneIcon} alt="phone" className="mr-2 w-[30px] h-[30px]" /><span className="text">+234 9055 570 782</span></a></li>
                                     <li><a href="#" className="mb-4 flex flex-row justify-center items-center"><img src={emailIcon} alt="email" className="mr-2 w-[20px] h-[20px]" /><span className="text">admin@maticdrive.com</span></a></li>
@@ -56,7 +56,7 @@ function Footer() {
                 </div>
                 <div className="pb-10">
                     <div className="text-center">
-                        <div className="text-white mb-8">Copyright &copy; All rights reserved | MaticDrive Inc.</div>
+                        <div className="text-gray-400 mb-8">Copyright &copy; All rights reserved | MaticDrive Inc.</div>
                     </div>
                 </div>
             </div>
