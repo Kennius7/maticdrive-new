@@ -1,20 +1,36 @@
-// import React from 'react'
 import heroPics from "../assets/about-a.jpeg";
+import { useState, useEffect } from "react";
 
 
 
 function Hero() {
+    const [offsetY, setOffsetY] = useState(0);
+    const handleScroll = () => { setOffsetY(window.pageYOffset) };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+        }
+    }, [])
+
+
     return (
         <section className="">
-            <div className="">
-                <img src={heroPics} alt="hero pics" className="hero-bg-image" />
-                <div className={`flex flex-col justify-center items-center mx-72`}>
-                    <div className="flex flex-row justify-between items-center w-full">
+            <div className="w-full overflow-hidden h-[800px]">
+                <img src={heroPics} alt="hero pics"
+                    className="w-full h-[800px] opacity-20 -mt-60"
+                    style={{ transform: `translateY(${offsetY * 0.3}px)` }}
+                />
+                <div className={`flex flex-col justify-center items-center my-20 -mt-80`}>
+
+                    <div className="flex flex-row justify-center items-center w-full">
                         <h1 className="font-poppins font-semibold ss:text-[60px] text-[32px] 
                             text-white ss:leading-[70px] leading-[55px] text-center">
                             The Next Generation
                             <br />
-                            <span className="text-gradient">Autonomous Vehicles</span>
+                            <span className="text-gradient text-[50px]">Autonomous Vehicles</span>
                         </h1>
                     </div>
                     <h1

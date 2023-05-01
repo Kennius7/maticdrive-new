@@ -67,40 +67,46 @@ const TeamPlayers = () => {
 
 
   return (
-    <section className={`flex-col my-4`}>
+    <section className={`flex-col w-full`}>
 
       {/* <div className="w-[60%] h-[60%] -right-[50%] rounded-full blue__gradient bottom-40" /> */}
 
-      <div className="w-full flex justify-center items-center flex-col sm:mb-16 mb-6 mt-16">
+      <div className="w-full flex justify-center items-center flex-col sm:mb-20 mb-6 pt-40">
         <h2 className="text-white text-[35px] font-semibold">
           Meet the <br className="sm:hidden block" /> MATIC<span className="text-gradient">DRIVE</span> Team.
         </h2>
-        <div className="flex justify-center items-center w-full mt-10">
+        <div className="flex justify-center items-center w-full mt-16">
           <p className={`text-center max-w-[600px] text-white text-[22px]`}>
-            An agile team experienced with machine learning and neural data AI systems production, 
-            development, deployment etc, we are poised to capitalize on the nascent African market 
+            An agile team experienced with machine learning and neural data AI systems production,
+            development, deployment etc, we are poised to capitalize on the nascent African market
             for autonoumous vehicle technology.
           </p>
         </div>
       </div>
 
-      <div className="w-full">
-
+      <div className="w-full pb-40">
 
         <div className="flex flex-wrap justify-center items-center">
           {teamMembers.map((card) => (
             <div key={card.id} className="m-2">
-              <div className="flex flex-col justify-center items-center ss:w-[300px] ss:h-[300px] w-[120px] h-[120px] ss:p-2 ss:m-6 p-2 m-2">
+              <div className="flex flex-col justify-center items-center 
+                    ss:w-[230px] ss:h-[230px] w-[120px] h-[120px] ss:m-2 p-2 m-2">
                 <div className="">
-                  <img src={card.img} alt={card.name} className="ss:w-[220px] ss:h-[220px] w-[100px] h-[100px] border-2 border-yellow-300 bg-center bg-cover rounded-[50%]" />
-                  <img src={logo} alt="logo" className="ss:-mt-20 ss:mb-4 -mt-10 -ml-3 mb-1 ss:w-[40px] ss:h-[40px] w-[30px] h-[30px] border-2 border-yellow-300 border-opacity-10 bg-center bg-cover rounded-[50%]" />
+                  <img src={card.img} alt={card.name} className="ss:w-[160px] ss:h-[160px] w-[100px] 
+                  h-[100px] border-2 border-yellow-300 bg-center bg-cover rounded-[50%]" />
+                  <img src={logo} alt="logo" className="ss:-mt-20 ss:mb-4 -mt-10 -ml-3 mb-1 ss:w-[40px] 
+                  ss:h-[40px] w-[30px] h-[30px] border-2 border-yellow-300 border-opacity-10 bg-center 
+                  bg-cover rounded-[50%]" />
                 </div>
 
-                <div className="flex flex-col items-center text-center rounded-[10px] ss:mt-2 sm:mt-8 mt-1 ss:max-w-[400px]">
-                  <h4 className="font-poppins ss:font-bold font-semibold ss:text-[16px] sm:text-[20px] ss:w-[400px] w-[150px] text-[12px] ss:leading-[25px] text-white">
+                <div className="flex flex-col items-center text-center rounded-[10px] ss:mt-2 sm:mt-8 
+                mt-1 ss:max-w-[400px]">
+                  <h4 className="font-poppins ss:font-bold font-semibold ss:text-[16px] sm:text-[20px] 
+                  ss:w-[400px] w-[150px] text-[12px] ss:leading-[25px] text-white">
                     {card.name}
                   </h4>
-                  <p className="font-poppins font-normal ss:text-[12px] sm:text-[14px] text-[10px] ss:leading-[25px] text-white">
+                  <p className="font-poppins font-normal ss:text-[12px] sm:text-[14px] text-[10px] 
+                  ss:leading-[25px] text-white">
                     {card.title}
                   </p>
                 </div>

@@ -137,7 +137,9 @@ function Navbar() {
                 </div>
 
             </div>
-            <div className={`${user ? "block" : "hidden"} flex justify-center items-center text-primary font-bold rounded-[50%] bg-text-gradient w-[28px] h-[28px] -ml-2 -mr-3 ss:ml-14 ss:-mr-14`}>
+            <div className={`${user ? "block" : "hidden"} 
+            flex justify-center items-center text-primary font-bold rounded-[50%] bg-text-gradient 
+            w-[28px] h-[28px] -ml-2 -mr-3 ss:ml-14 ss:-mr-10`}>
                 {
                     (
                         user && user.displayName.split(" ")[0].split("")[0].toUpperCase()
