@@ -62,7 +62,7 @@ function Footer() {
                     </div>
 
                     <div className={`flex flex-col justify-start max-w-[160px] ss:max-w-[400px]`}>
-                        <h2 className={`text-gray-400 font-bold ss:mb-8 mb-2 ss:text-[20px] 
+                        <h2 className={`text-gray-400 font-bold ss:mb-8 mb-2 ss:ml-0 ml-3 ss:text-[20px] 
                         text-[16px]`}>Have Questions?</h2>
 
                         <ul className="w-full text-gray-400 flex flex-col justify-start">
