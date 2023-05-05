@@ -50,7 +50,7 @@ function Footer() {
                         </p>
                     </div>
 
-                    <div className="flex flex-col max-w-[160px] ss:max-w-[400px] mr-1 bg-yellow-400">
+                    <div className="flex flex-col max-w-[160px] ss:max-w-[400px] mr-1">
                         <h2 className={`text-gray-400 ss:mb-8 font-bold ss:text-[20px] text-[16px]`}>Information</h2>
                         <ul className="list-unstyled flex flex-col text-gray-400 ss:text-[20px] text-[15px]">
                             <li className=""><Link to="/aboutus" >About</Link></li>
@@ -61,7 +61,7 @@ function Footer() {
                         </ul>
                     </div>
 
-                    <div className={`flex flex-col justify-start max-w-[160px] ss:max-w-[400px] bg-blue-400`}>
+                    <div className={`flex flex-col justify-start max-w-[160px] ss:max-w-[400px]`}>
                         <h2 className={`text-gray-400 font-bold ss:mb-8 mb-2 ss:text-[20px] 
                         text-[16px]`}>Have Questions?</h2>
 
