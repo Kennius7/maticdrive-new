@@ -16,7 +16,6 @@ function App() {
   // const [loader, setLoader] = useState(false);
 
 
-
   useEffect(() => {
     // setLoader(true);
     // setTimeout(() => {
@@ -38,15 +37,12 @@ function App() {
   return (
     <BrowserRouter>
 
-      <div className={`bg-primary relative`}>
+      <div className={`w-full flex flex-col bg-primary relative`}>
 
-        <div className={`w-[100%] px-4 ${scrolled ?
-          "flex fixed z-[3] justify-between w-full duration-1000 bg-primary" :
-          "bg-transparent absolute z-[3] duration-1000"} 
-            md:px-16 px-0 flex justify-center items-center`}>
-          <div className={`w-full`}>
-            <Navbar />
-          </div>
+        <div className={`${scrolled 
+        ? "fixed z-[3] w-full duration-1000 bg-primary" 
+        : "bg-transparent absolute z-[3] duration-1000 w-full"}`}>
+          <Navbar />
         </div>
 
         <Routes>

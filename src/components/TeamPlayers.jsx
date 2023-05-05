@@ -69,8 +69,6 @@ const TeamPlayers = () => {
   return (
     <section className={`flex-col w-full`}>
 
-      {/* <div className="w-[60%] h-[60%] -right-[50%] rounded-full blue__gradient bottom-40" /> */}
-
       <div className="w-full flex justify-center items-center flex-col sm:mb-20 mb-6 pt-40">
         <h2 className="text-white text-[35px] font-semibold">
           Meet the <br className="sm:hidden block" /> MATIC<span className="text-gradient">DRIVE</span> Team.

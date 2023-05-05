@@ -18,7 +18,7 @@ function Hero() {
 
     return (
         <section className="">
-            <div className="w-full overflow-hidden h-[800px]">
+            <div className="w-full overflow-hidden h-[750px]">
                 <img src={heroPics} alt="hero pics"
                     className="w-full h-[800px] opacity-20 -mt-60"
                     style={{ transform: `translateY(${offsetY * 0.3}px)` }}
@@ -35,7 +35,7 @@ function Hero() {
                     </div>
                     <h1
                         className="-mt-3 font-poppins font-semibold ss:text-[55px] text-[40px] text-white 
-                        ss:leading-[100.8px] leading-[75px] w-full text-center">
+                        ss:leading-[100px] leading-[75px] w-full text-center">
                         For Africa
                     </h1>
                     <p className={`max-w-[550px] mt-4 text-white font-poppins text-center text-[20px]`}>
