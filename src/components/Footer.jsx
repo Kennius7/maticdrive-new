@@ -43,7 +43,7 @@ function Footer() {
                                     text-[16px]`}> Drive</span>
                             </div>
                         </Link>
-                        <p className={`w-full text-gray-400 leading-[35px] text-[20px]`}>
+                        <p className={`w-full text-gray-400 leading-[35px] text-[18px]`}>
                             Develop your AV business model with our agile team,
                             to create efficient AVs that can deliver optimum services
                             anywhere in Africa.
@@ -52,7 +52,7 @@ function Footer() {
 
                     <div className="flex flex-col max-w-[160px] ss:max-w-[400px] mr-1">
                         <h2 className={`text-gray-400 ss:mb-8 font-bold ss:text-[20px] text-[16px]`}>Information</h2>
-                        <ul className="list-unstyled flex flex-col text-gray-400 ss:text-[20px] text-[15px]">
+                        <ul className="list-unstyled flex flex-col text-gray-400 ss:text-[18px] text-[15px]">
                             <li className=""><Link to="/aboutus" >About</Link></li>
                             <li className=""><Link to="/features" >Services</Link></li>
                             <li className="ss:tracking-normal tracking-[-1px]"><Link to="/legal" >Privacy &amp; Cookies Policy</Link></li>
@@ -69,13 +69,13 @@ function Footer() {
                             <li className="ss:mb-4 ss:-ml-10">
                                 <a href="#" className="mb-2 flex flex-row justify-center items-center">
                                     <img src={phoneIcon} alt="phone" className="mr-2 w-[15px] h-[15px] ss:w-[30px] ss:h-[30px]" />
-                                    <span className="ss:text-[20px] text-[14px]">+2349055570782</span>
+                                    <span className="ss:text-[18px] text-[14px]">+2349055570782</span>
                                 </a>
                             </li>
                             <li className="ss:mb-4 ss:-ml-3">
                                 <a href="#" className="flex flex-row justify-center items-center">
                                     <img src={emailIcon} alt="email" className="mr-2 ml-2 w-[15px] h-[15px] ss:w-[30px] ss:h-[30px]" />
-                                    <span className={`ss:text-[20px] text-[14px] ss:tracking-normal 
+                                    <span className={`ss:text-[18px] text-[14px] ss:tracking-normal 
                                     tracking-[-1px]`}>admin@maticdrive.com</span>
                                 </a>
                             </li>
@@ -103,7 +103,7 @@ function Footer() {
                 </ul>
 
 
-                <div className="w-full text-gray-400 text-center mb-4 ss:mb-6 text-[14px] ss:text-[20px]">
+                <div className="w-full text-gray-400 text-center mb-4 ss:mb-6 text-[14px] ss:text-[18px]">
                     Copyright &copy; All rights reserved | MaticDrive Inc.
                 </div>
 

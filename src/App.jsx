@@ -1,4 +1,4 @@
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -51,9 +51,9 @@ function App() {
           <Route path="/aboutus" element={<AboutUsPage />} exact />
         </Routes>
 
-        <div>
+        {/* <div>
           <Footer />
-        </div>
+        </div> */}
 
       </div>
 

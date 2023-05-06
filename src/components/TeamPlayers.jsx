@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import people01 from "../assets/MaticEsther2.png";
 import people02 from "../assets/MaticOsato.png";
 import people03 from "../assets/MaticKenny.png";
@@ -7,6 +8,7 @@ import people06 from "../assets/MaticAzeez.png";
 import people07 from "../assets/MaticAbdulmatin2.png";
 import people08 from "../assets/MaticJudith.png";
 import logo from "../assets/MaticIconSmall1.png";
+import heroPics from "../assets/about-a.jpeg";
 
 
 
@@ -65,21 +67,44 @@ const TeamPlayers = () => {
     },
   ];
 
+  const [offsetY, setOffsetY] = useState(0);
+  const handleScroll = () => { setOffsetY(window.pageYOffset) };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
 
   return (
     <section className={`flex-col w-full`}>
 
-      <div className="w-full flex justify-center items-center flex-col sm:mb-20 mb-6 pt-40">
-        <h2 className="text-white text-[35px] font-semibold">
-          Meet the <br className="sm:hidden block" /> MATIC<span className="text-gradient">DRIVE</span> Team.
-        </h2>
-        <div className="flex justify-center items-center w-full mt-16">
-          <p className={`text-center max-w-[600px] text-white text-[22px]`}>
-            An agile team experienced with machine learning and neural data AI systems production,
-            development, deployment etc, we are poised to capitalize on the nascent African market
-            for autonoumous vehicle technology.
-          </p>
+      <div className="w-full flex flex-col justify-center items-center overflow-hidden sm:mb-20 
+      mb-6 ss:pt-40 ss:h-[600px] h-[450px]">
+
+        <img src={heroPics} alt="hero pics"
+          className="w-full ss:h-[700px] h-[500px] opacity-20 ss:-mt-[400px] -mt-[250px]"
+          style={{ transform: `translateY(${offsetY * 0.3}px)` }}
+        />
+        <div className="flex flex-col ss:-mt-[300px] -mt-[300px]">
+          <h2 className="text-white text-center ss:text-[35px] text-[25px] font-semibold">
+            Meet the
+            <br className="sm:hidden block" />
+            MATIC
+            <span className="text-gradient">DRIVE</span> Team
+          </h2>
+          <div className="flex justify-center items-center w-full ss:mt-16 mt-4">
+            <p className={`text-center ss:max-w-[600px] max-w-[320px] text-white ss:text-[22px] italic text-[18px]`}>
+              An agile team experienced with machine learning and neural data AI systems production,
+              development, deployment etc, we are poised to capitalize on the nascent African market
+              for autonoumous vehicle technology.
+            </p>
+          </div>
         </div>
+
+
       </div>
 
       <div className="w-full pb-40">

@@ -81,7 +81,7 @@ function Navbar() {
             </div>
 
 
-            <ul className="list-none md:flex hidden justify-center items-center -mr-[500px]">
+            <ul className="list-none md:flex hidden justify-center items-center">
                 {navLinks.map((nav) => (
                     <li
                         key={nav.id}
