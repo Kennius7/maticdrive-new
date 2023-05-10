@@ -43,6 +43,9 @@ function Navbar() {
     const [toggle, setToggle] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [user] = useAuthState(auth);
+    const [currentlyLoggedInUser] = useAuthState(auth);
+    const blogAdminUid = "gjSWaw1PnsZMfCntqQGDCSvErH93";
+    
 
 
     useEffect(() => {
@@ -93,7 +96,8 @@ function Navbar() {
                         ${scrolled
                                 ? "text-[12px] navText1 duration-1000"
                                 : "text-[13px] navText2 duration-1000"} 
-                        ${user && nav.title === "Sign In" ? "hidden" : "block"}`}
+                        ${user && nav.title === "Sign In" ? "hidden" : "block"}
+                        ${currentlyLoggedInUser.uid === blogAdminUid ? "block" : "hidden"}`}
                         onClick={() => setActive(nav.title)}
                     >
                         <Link to={`${nav.id}`}>
@@ -133,7 +137,8 @@ function Navbar() {
                                 key={nav.id}
                                 className={`font-poppins font-medium cursor-pointer text-[16px] mb-4
                                 ${active === nav.title ? "text-white" : "text-dimWhite"} 
-                                ${user && nav.title === "Sign In" ? "hidden" : "block"}`}
+                                ${user && nav.title === "Sign In" ? "hidden" : "block"}
+                                ${currentlyLoggedInUser.uid === blogAdminUid ? "block" : "hidden"}`}
                                 onClick={() => {
                                     setActive(nav.title);
                                     setToggle(!toggle);

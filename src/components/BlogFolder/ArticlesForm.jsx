@@ -93,12 +93,14 @@ function ArticlesForm() {
     <div className='text-white flex flex-col'>
 
       {
-        !user ?
+        !user 
+          ?
           <div className='flex flex-col justify-center items-center p-2 mx-4 mb-56 mt-60 bg-black-gradient-2 rounded-[10px] box-shadow'>
             <span className='font-semibold my-4 text-[22px]'><Link className='text-[30px] text-gradient' to="/signin">Login</Link> to access Blog Section</span>
             <div className="font-semibold mb-4">Don&apos;t have an account? <Link className='text-gradient' to="/signup">Sign up</Link></div>
-          </div> :
-          <div className='flex justify-center items-center'>
+          </div>
+          :
+          <div className='flex justify-center items-center relative'>
 
             <div className={`w-full flex flex-col justify-center items-center overflow-hidden`}>
               <img src={heroPics} alt="hero pics"
@@ -106,22 +108,26 @@ function ArticlesForm() {
                 style={{ transform: `translateY(${offsetY * 0.7}px)` }}
               />
 
+              <div className="flex flex-col justify-center items-center w-[350px] ss:mt-[150px] absolute z-[1]">
 
-
-              <div className="flex flex-col justify-center items-center w-[350px]">
-                <div className='my-4 font-bold text-[25px] text-center'>Create Article</div>
+                <div className='font-poppins font-bold text-[25px] text-center my-4 mb-10'>Create Article</div>
                 <div className='flex flex-col mb-4 w-full'>
                   <label htmlFor="">Title</label>
-                  <textarea className='bg-white text-primary placeholder-gray-300' placeholder='Post Title' type='text' name='title' value={formData.title} onChange={(e) => handleChange(e)} />
+                  <textarea 
+                  className='bg-white opacity-50 text-primary placeholder-gray-400' 
+                  placeholder='Post Title' type='text' name='title' value={formData.title} 
+                  onChange={(e) => handleChange(e)} />
                 </div>
-
                 <div className='flex flex-col mb-4 w-full'>
                   <label htmlFor="">Description</label>
-                  <textarea className='bg-white text-primary placeholder-gray-300' placeholder='Post Description' name="description" value={formData.description} onChange={(e) => handleChange(e)} />
+                  <textarea 
+                  className='bg-white opacity-50 text-primary placeholder-gray-400' 
+                  placeholder='Post Description' name="description" value={formData.description} 
+                  onChange={(e) => handleChange(e)} />
                 </div>
 
-                <div className='flex flex-col mb-6'>
-                  <div className="ml-40 text-[50px] text-white my-72">Post Content</div>
+                <div className='flex flex-col mb-4 mt-8'>
+                  <div className="font-poppins font-semibold text-[25px] text-center text-white mb-8">Post Content</div>
                   <CKEditor
                     editor={ClassicEditor}
                     data={postContent}
@@ -129,7 +135,6 @@ function ArticlesForm() {
                       const data = editor.getData();
                       setPostContent(data);
                     }}
-                    className="CKEditor"
                   />
                 </div>
 
@@ -151,7 +156,6 @@ function ArticlesForm() {
 
                 <button className='w-[100px] h-[30px] rounded-[8px] bg-blue-500 mt-10' onClick={handlePublish}>Publish</button>
               </div>
-
 
             </div>
 
