@@ -278,3 +278,149 @@ button:focus-visible {
 
 
 
+/* //////////////////////////////////====CONTACT FORM CSS====///////////////////////////////////// */
+
+
+.form__content{
+  display: grid;
+  row-gap: 1.0rem;
+  padding: 4px;
+}
+
+.form__input,
+.form__messageInput,
+.form__submit{
+  border-bottom-color: #1f22c4;
+  border-bottom-width: 1px;
+  outline: none;
+}
+
+.form__box{
+  position: relative;
+  width: 98%;
+  height: 40px;
+  margin: auto;
+}
+
+.form__shadow{
+  border-radius: 8px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #3452b3;
+  opacity: .6;
+  outline: none;
+  border-width: 0;
+}
+
+.form__messageShadow{
+  border-radius: 8px;
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background-color: #3452b3;
+  opacity: .6;
+  outline: none;
+  border-width: 0;
+}
+
+.form__input{
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  z-index: 2;
+  transition: transform .5s;
+}
+
+.form__input::placeholder{
+  color: #14101d;
+  padding-left: 5px;
+}
+
+.form__messageInput::placeholder{
+  color: #14101d;
+}
+
+.form__messageInput{
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background-color: rgb(223, 219, 219);
+  padding: 10px;
+  z-index: 2;
+  transition: transform .5s;
+}
+
+.form__button{
+  border-radius: 8px;
+  margin-top: 100px;
+  position: relative;
+  justify-self: center;
+  background-color: #214d76;
+  width: 50%;
+  height: 50px;
+}
+
+.form__submit{
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  background-color: var(--bg-text-gradient);
+  cursor: pointer;
+  transition: transform .3s;
+  z-index: 2;
+}
+
+
+.form__submit:focus{
+  position: absolute;
+  transform: translate(-3px, -3px);
+  z-index: 2;
+}
+
+.form__submit:hover{
+  font-size: larger;
+  background-color: #1b0381;
+}
+
+.form__input:focus::placeholder{
+  opacity: 0;
+  transition: .5s;
+}
+
+.form__messageInput:focus::placeholder{
+  opacity: 0;
+  transition: .5s;
+}
+
+.form__input:focus,
+.form__input:not(:placeholder-shown).form__input:not(:focus),
+.form__messageInput:focus,
+.form__messageInput:not(:placeholder-shown).form__messageInput:not(:focus){
+  transform: translate(-2px, -2px);
+}
+
+.sent{
+  background-color: #0cb335;
+}
+
+.reject{
+  background-color: #b33b0c;
+}
+
+.default{
+  background-color: #07064e;
+}
+
+.error-default{
+  background-color: #07064e;
+}
+
+
+
+

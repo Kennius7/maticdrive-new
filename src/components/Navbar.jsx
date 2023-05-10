@@ -34,6 +34,10 @@ function Navbar() {
             id: "/signin",
             title: "Sign In",
         },
+        {
+            id: "/createarticle",
+            title: "Blog Admin",
+        },
     ];
     const [active, setActive] = useState("Home");
     const [toggle, setToggle] = useState(false);
@@ -59,51 +63,51 @@ function Navbar() {
     return (
         <nav className={`w-full flex justify-between items-center`}>
 
-            <div className="">
-                <div className="flex justify-center items-center">
-                    <Link to="/">
-                        <img src={logo} alt="Maticdrive logo"
-                            className={`${scrolled 
+            <div className="flex justify-center items-center">
+                <Link to="/">
+                    <img src={logo} alt="Maticdrive logo"
+                        className={`${scrolled
                             ? "w-[35px] h-[35px] ss:w-[50px] ss:h-[50px] duration-1000"
-                            : "w-[50px] h-[50px] ss:w-[70px] ss:h-[70px] duration-1000"} 
+                            : "w-[45px] h-[45px] ss:w-[70px] ss:h-[70px] duration-1000"} 
                             m-2`}
-                        />
-                    </Link>
-                    <div className="flex flex-col -mt-2">
-                        <div className={`${scrolled 
-                                        ? "text-[20px] tracking-wider" 
-                                        : "text-[25px] tracking-widest"} 
+                    />
+                </Link>
+                <div className="flex flex-col -mt-2">
+                    <div className={`${scrolled
+                        ? "text-[20px] tracking-normal"
+                        : "text-[23px] tracking-wider"} 
                                         font-semibold text-white`}
-                                        >Matic <span className="text-gradient">Drive</span>
-                        </div>
+                    >Matic <span className="text-gradient">Drive</span>
                     </div>
                 </div>
             </div>
 
-
-            <ul className="list-none md:flex hidden justify-center items-center">
+            <ul className={`list-none md:flex hidden justify-center items-center 
+                ${scrolled ? "ss:-mr-[350px]" : "ss:-mr-[280px]"}`}>
                 {navLinks.map((nav) => (
                     <li
                         key={nav.id}
                         className={`font-poppins font-semibold cursor-pointer  
-                        hover:border-b-4 hover:pb-2 hover:border-yellow-300 mr-6 
+                        hover:border-b-4 hover:pb-2 hover:border-yellow-300 mr-4 
                         ${active === nav.title ? "text-white" : "text-gray-500"} 
-                        ${scrolled 
-                        ? "text-[15px] navText1 duration-1000" 
-                        : "text-[16px] navText2 duration-1000"} 
+                        ${scrolled
+                                ? "text-[12px] navText1 duration-1000"
+                                : "text-[13px] navText2 duration-1000"} 
                         ${user && nav.title === "Sign In" ? "hidden" : "block"}`}
                         onClick={() => setActive(nav.title)}
                     >
-                        <Link to={`${nav.id}`}>{nav.title}</Link>
+                        <Link to={`${nav.id}`}>
+                            {nav.title}
+                        </Link>
                     </li>
                 ))}
                 <button
                     onClick={() => { signOut(auth) }}
                     className={`${user ? "block" : "hidden"} w-[80px] h-[25px] 
-                    ${scrolled 
-                    ? "text-[14px] navText1 duration-1000" 
-                    : "text-[16px] navText2 duration-1000"} 
-                    font-poppins text-center font-semibold text-gray-500 
+                    ${scrolled
+                            ? "text-[12px] navText1 duration-1000"
+                            : "text-[13px] navText2 duration-1000"} 
+                    font-poppins text-center font-semibold text-gray-500 ss:-ml-2
                     bg-transparent hover:border-b-4 hover:pb-8 hover:border-yellow-300`}
                 >Sign Out</button>
             </ul>
@@ -155,7 +159,7 @@ function Navbar() {
 
             <div className={`${user ? "block" : "hidden"} 
             flex justify-center items-center text-primary font-bold rounded-[50%] bg-text-gradient 
-            w-[30px] h-[30px] mr-4`}>
+            w-[27px] h-[27px] p-[15px] ss:py-[5px] mr-4`}>
                 {
                     (
                         user && user.displayName.split(" ")[0].split("")[0].toUpperCase()
@@ -167,7 +171,7 @@ function Navbar() {
                     )
                 }
             </div>
-            
+
         </nav>
     )
 }

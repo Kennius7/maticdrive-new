@@ -45,7 +45,7 @@ const AboutUs = () => {
 
   return (
     <section>
-      <div className={`w-full flex flex-col justify-center items-center overflow-hidden`}>
+      <div className={`w-full flex flex-col justify-center items-center overflow-hidden ss:-mt-20`}>
 
         <img src={heroPics} alt="hero pics"
           className="w-full ss:h-[1000px] h-[500px] opacity-10"
