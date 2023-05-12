@@ -77,7 +77,7 @@ const AboutUs = () => {
           />
         </div>
 
-        <div className="ss:hidden flex w-full h-[300px] -mt-40 overflow-hidden justify-center items-center">
+        <div className="ss:hidden flex w-full h-[270px] -mt-40 overflow-hidden justify-center items-center">
           <img src={aboutUsPics} alt="aboutus pics" 
             className="w-full h-[300px]"
             style={{ transform: `translateY(${offsetY * 0.2}px)` }}  
@@ -95,7 +95,7 @@ const AboutUs = () => {
                 </div>
                 <hr className="w-full border border-white bg-white" />
                 <p className="ss:mt-2 mt-1 ss:mx-4 mx-2 font-poppins font-normal ss:tracking-wide 
-                tracking-tight text-white italic ss:text-[13px] text-[12px] leading-[15px] newline">
+                tracking-normal text-white italic ss:text-[13px] text-[13px] leading-[15px] newline">
                   {feature.content}
                 </p>
               </div>

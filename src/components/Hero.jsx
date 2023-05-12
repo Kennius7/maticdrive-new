@@ -17,7 +17,7 @@ function Hero() {
 
 
     return (
-        <section className="">
+        <section className="w-full">
             <div className="w-full overflow-hidden ss:h-[750px] h-[450px]">
                 <img src={heroPics} alt="hero pics"
                     className="w-full ss:h-[800px] h-[500px] opacity-20 ss:-mt-60 -mt-10"
@@ -26,23 +26,23 @@ function Hero() {
                 <div className={`flex flex-col justify-center items-center my-20 -mt-[400px]`}>
 
                     <div className="flex flex-row justify-center items-center w-full">
-                        <h1 className="font-poppins font-semibold ss:text-[60px] text-[20px] 
+                        <h1 className="font-poppins font-semibold ss:text-[60px] text-[22px] 
                             text-white ss:leading-[80px] leading-[35px] text-center">
-                            Introducing <br/> The Next Generation
+                            Introducing <br/> <span className="ss:text-[60px] text-[26px]">The Next Generation</span>
                             <br />
                             <span className="text-gradient ss:text-[70px] text-[30px] ss:tracking-normal 
                             tracking-[-1px]">Autonomous Vehicles</span>
                         </h1>
                     </div>
                     <h1
-                        className="-mt-3 font-poppins font-semibold ss:text-[55px] text-[30px] text-white 
+                        className="-mt-4 font-poppins font-semibold ss:text-[55px] text-[30px] text-white 
                         ss:leading-[100px] leading-[75px] w-full text-center">
                         For Africa
                     </h1>
-                    <p className={`max-w-[550px] mt-4 text-white font-poppins text-center ss:text-[20px] 
-                    text-[16px]`}>
+                    <p className={`ss:max-w-[550px] max-w-[300px] mt-4 ss:mt-8 text-white font-poppins 
+                    text-center ss:text-[22px] text-[16px] ss:tracking-normal tracking-wider`}>
                         Our team of experts use unique data peculiar to Africa and innovative AI
-                        and Sensor technology to ensure ease of transport and safety in a vehicle!
+                        and sensor technology to ensure ease of transport and safety. <br/>
                         The next phase in AV technology is evolving and we are ahead of the curve!
                     </p>
                 </div>

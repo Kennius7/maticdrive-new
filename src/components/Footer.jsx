@@ -12,7 +12,7 @@ import phoneIcon from "../assets/Discount.svg";
 
 function Footer() {
     return (
-        <footer className="w-full bg-gray-900">
+        <footer className="w-full flex justify-center items-center bg-gray-900">
 
             <div className="w-full flex flex-col justify-center items-center pt-6">
 
@@ -31,6 +31,7 @@ function Footer() {
                         anywhere in Africa.
                     </p>
                 </div> */}
+
 
                 <div className="w-full flex flex-row justify-around items-start ss:mb-8 ss:mt-12">
 
@@ -67,19 +68,18 @@ function Footer() {
                         text-[16px]`}>Have Questions?</h2>
 
                         <ul className="w-full text-gray-400 flex flex-1 flex-col justify-start">
-                            <li className="ss:mb-4 ss:-ml-10 -ml-5">
-                                <a href="#" className="mb-2 flex flex-row justify-center items-center">
-                                    <img src={phoneIcon} alt="phone" className="mr-2 w-[15px] h-[15px] 
+                            <li className="ss:mb-4">
+                                <a href="#" className="mb-2 flex flex-row justify-start items-center">
+                                    <img src={phoneIcon} alt="phone" className="w-[15px] h-[15px] 
                                     ss:w-[20px] ss:h-[20px]" />
                                     <span className="ss:text-[14px] text-[14px]">+2349055570782</span>
                                 </a>
                             </li>
-                            <li className="ss:mb-2 ss:-ml-3 -ml-2">
-                                <a href="#" className="flex flex-row justify-center items-center">
-                                    <img src={phoneIcon} alt="email" className="mr-2 ml-2 w-[15px] 
+                            <li className="ss:mb-2">
+                                <a href="#" className="flex flex-row justify-start items-center">
+                                    <img src={phoneIcon} alt="email" className="w-[15px] 
                                     h-[15px] ss:w-[20px] ss:h-[20px]" />
-                                    <span className={`ss:text-[14px] text-[14px] ss:tracking-normal 
-                                    tracking-[-1px]`}>admin@maticdrive.com</span>
+                                    <span className={`ss:text-[14px] text-[14px]`}>admin@maticdrive.com</span>
                                 </a>
                             </li>
 
@@ -97,6 +97,8 @@ function Footer() {
 
                 </div>
 
+
+
                 <ul className="ss:hidden flex flex-row justify-around items-center mt-4 w-[300px]">
                     <li className=""><a href="https://www.facebook.com" target="_blank" rel="noreferrer"><img src={facebookIcon} alt="FB" className="w-[23px] h-[23px]" /></a></li>
                     <li className=""><a href="https://twitter.com/maticdrive1?s=11&t=7_0FyjTgyXMQm84ZH0Psfw" target="_blank" rel="noreferrer"><img src={twitterIcon} alt="Tw" className="w-[23px] h-[23px]" /></a></li>
@@ -106,7 +108,8 @@ function Footer() {
                     <li className=""><a href="https://youtube.com/@maticdrive" target="_blank" rel="noreferrer"><img src={youtubeIcon} alt="Yt" className="w-[23px] h-[23px]" /></a></li>
                 </ul>
 
-                <div className="w-full text-gray-400 text-center mb-4 ss:mb-6 text-[14px] ss:text-[14px]">
+                <div className="w-full text-gray-400 text-center mb-4 ss:mb-6 text-[14px] 
+                ss:text-[14px]">
                     Copyright &copy; All rights reserved | MaticDrive Inc.
                 </div>
 
