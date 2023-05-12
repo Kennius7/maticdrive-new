@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { auth, provider } from '../../../firebaseConfig';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { googleLogo2 } from '../../assets';
+import googleLogo from '../../assets/google-logo.png';
 
 
 
@@ -76,7 +76,7 @@ function Login() {
       <div className="w-full flex justify-center items-center mt-16">
         <button onClick={handleGoogleSignIn} className="flex justify-center items-center text-white font-bold w-[80%] h-[40px] bg-blue-800 rounded-[7px]">
           <div className="flex items-center">
-            <img className="w-[32px] h-[32px] mr-3" src={googleLogo2} alt="google logo" />Sign in with Google
+            <img className="w-[32px] h-[32px] mr-3" src={googleLogo} alt="google logo" />Sign in with Google
           </div>
         </button>
       </div>

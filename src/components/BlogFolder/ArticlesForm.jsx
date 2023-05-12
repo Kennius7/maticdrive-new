@@ -6,8 +6,14 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from 'react-router-dom';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
+import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+// import { Essentials } from '@ckeditor/ckeditor5-essentials';
+// import { Bold, Italic } from "@ckeditor/ckeditor5-basic-styles";
+// import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
+
+
+// import EditorContainer from '../EditorContainer';
 import parse from "html-react-parser";
 import heroPics from "../../assets/about-a.jpeg";
 
@@ -25,6 +31,10 @@ function ArticlesForm() {
   const [progress, setProgress] = useState(0);
   const [offsetY, setOffsetY] = useState(0);
   const handleScroll = () => { setOffsetY(window.pageYOffset) };
+  // const editorConfiguration = {
+  //   plugins: [ Essentials, Bold, Italic, Paragraph ],
+  //   toolbar: [ "bold", "italic" ]
+  // }
 
 
   useEffect(() => {
@@ -93,7 +103,7 @@ function ArticlesForm() {
     <div className='text-white flex flex-col'>
 
       {
-        !user 
+        !user
           ?
           <div className='flex flex-col justify-center items-center p-2 mx-4 mb-56 mt-60 bg-black-gradient-2 rounded-[10px] box-shadow'>
             <span className='font-semibold my-4 text-[22px]'><Link className='text-[30px] text-gradient' to="/signin">Login</Link> to access Blog Section</span>
@@ -108,24 +118,27 @@ function ArticlesForm() {
                 style={{ transform: `translateY(${offsetY * 0.7}px)` }}
               />
 
-              <div className="flex flex-col justify-center items-center w-[350px] ss:mt-[150px] absolute z-[1]">
+              <div className="flex flex-col justify-center items-center w-full ss:mt-[150px] 
+              absolute z-[1]">
 
-                <div className='font-poppins font-bold text-[25px] text-center my-4 mb-10'>Create Article</div>
-                <div className='flex flex-col mb-4 w-full'>
-                  <label htmlFor="">Title</label>
-                  <textarea 
-                  className='bg-white opacity-50 text-primary placeholder-gray-400' 
-                  placeholder='Post Title' type='text' name='title' value={formData.title} 
-                  onChange={(e) => handleChange(e)} />
+                <div className='font-poppins font-bold text-[25px] text-center 
+                my-4 mb-10'>Create Article</div>
+                <div className="flex flex-col justify-center items-center">
+                  <div className='flex flex-col mb-4 w-full'>
+                    <label htmlFor="">Title</label>
+                    <textarea
+                      className='bg-white opacity-50 text-primary placeholder-gray-400 w-[400px]'
+                      placeholder='Post Title' type='text' name='title' value={formData.title}
+                      onChange={(e) => handleChange(e)} />
+                  </div>
+                  <div className='flex flex-col mb-4 w-full'>
+                    <label htmlFor="">Description</label>
+                    <textarea
+                      className='bg-white opacity-50 text-primary placeholder-gray-400 w-[400px]'
+                      placeholder='Post Description' name="description" value={formData.description}
+                      onChange={(e) => handleChange(e)} />
+                  </div>
                 </div>
-                <div className='flex flex-col mb-4 w-full'>
-                  <label htmlFor="">Description</label>
-                  <textarea 
-                  className='bg-white opacity-50 text-primary placeholder-gray-400' 
-                  placeholder='Post Description' name="description" value={formData.description} 
-                  onChange={(e) => handleChange(e)} />
-                </div>
-
                 <div className='flex flex-col mb-4 mt-8'>
                   <div className="font-poppins font-semibold text-[25px] text-center text-white mb-8">Post Content</div>
                   <CKEditor
@@ -136,9 +149,10 @@ function ArticlesForm() {
                       setPostContent(data);
                     }}
                   />
+                  {/* <EditorContainer /> */}
                 </div>
 
-                <div className='text-blue-500 w-full h-[100px] bg-red-200 my-16'>
+                <div className='text-blue-500 w-[400px] h-[100px] bg-red-200 my-16'>
                   {parse(postContent)}
                 </div>
 
