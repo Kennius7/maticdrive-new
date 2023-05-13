@@ -21,8 +21,7 @@ function BlogsPage() {
     <section className={`w-full bg-primary`}>
       <div className={`w-full`}>
 
-        <div className={`w-full flex flex-col justify-center items-center 
-          overflow-hidden`}>
+        <div className={`w-full flex flex-col justify-center items-center overflow-hidden`}>
 
           <img src={heroPics} alt="hero pics"
             className="ss:h-[1000px] h-[500px] contain opacity-10"
