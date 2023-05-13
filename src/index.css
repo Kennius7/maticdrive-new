@@ -298,12 +298,11 @@ button:focus-visible {
 .form__box{
   position: relative;
   width: 98%;
-  height: 40px;
   margin: auto;
 }
 
 .form__shadow{
-  border-radius: 8px;
+  border-radius: 4px;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -314,10 +313,10 @@ button:focus-visible {
 }
 
 .form__messageShadow{
-  border-radius: 8px;
+  border-radius: 4px;
   position: absolute;
   width: 100%;
-  height: 100px;
+  height: 100%;
   background-color: #3452b3;
   opacity: .6;
   outline: none;
@@ -325,9 +324,9 @@ button:focus-visible {
 }
 
 .form__input{
+  border-radius: 4px;
   position: absolute;
   width: 100%;
-  height: 40px;
   background-color: white;
   z-index: 2;
   transition: transform .5s;
@@ -343,9 +342,9 @@ button:focus-visible {
 }
 
 .form__messageInput{
+  border-radius: 4px;
   position: absolute;
   width: 100%;
-  height: 100px;
   background-color: rgb(223, 219, 219);
   padding: 10px;
   z-index: 2;
@@ -354,7 +353,6 @@ button:focus-visible {
 
 .form__button{
   border-radius: 8px;
-  margin-top: 100px;
   position: relative;
   justify-self: center;
   background-color: #214d76;
@@ -370,7 +368,7 @@ button:focus-visible {
   color: white;
   font-weight: bold;
   font-size: 15px;
-  background-color: var(--bg-text-gradient);
+  background-color: #0c1488;
   cursor: pointer;
   transition: transform .3s;
   z-index: 2;
@@ -384,8 +382,9 @@ button:focus-visible {
 }
 
 .form__submit:hover{
-  font-size: larger;
-  background-color: #1b0381;
+  background-color: #3113b6;
+  transition: 1s;
+  transform: translate(-4px, -4px);
 }
 
 .form__input:focus::placeholder{

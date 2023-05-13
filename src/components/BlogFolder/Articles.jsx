@@ -28,18 +28,18 @@ function Articles() {
 
 
   return (
-    <div className="">
+    <div className="w-full">
       {
         !user || articles.length === 0 
         ? (
-          <div className="flex flex-col justify-center items-center">
-            <div className={`flex md:flex-row flex-col justify-center items-center bg-black-gradient-2 
-            box-shadow text-[17px] w-full ss:h-[300px]`}>
-              <div className="font-poppins italic text-[18px] ss:leading-[30px] ss:max-w-[480px] text-white 
-              text-center">
+          <div className="w-full flex flex-col justify-center items-center">
+            <div className={`w-full flex md:flex-row flex-col justify-center items-center bg-black-gradient-2 
+            box-shadow w-full ss:h-[300px]`}>
+              <div className="font-poppins italic ss:leading-[30px] ss:max-w-[480px] max-w-[280px] text-white 
+              text-center ss:text-[17px] text-[15px] ss:my-0 my-12">
                   You&apos;re most probably seeing this because you are not signed in or you are 
-                  having some issues with your internet. <br/>
-                  Check your internet connection or just reload your page and you&apos;ll 
+                  having some issues with your internet. <br/> <br/>
+                  Check your internet connection and reload your page, or you can sign in, and you&apos;ll 
                   be good to go!
               </div>
             </div>
