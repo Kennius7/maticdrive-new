@@ -99,18 +99,20 @@ function Footer() {
 
 
 
-                <ul className="ss:hidden flex flex-row justify-around items-center mt-4 w-[300px]">
-                    <li className=""><a href="https://www.facebook.com" target="_blank" rel="noreferrer"><img src={facebookIcon} alt="FB" className="w-[23px] h-[23px]" /></a></li>
-                    <li className=""><a href="https://twitter.com/maticdrive1?s=11&t=7_0FyjTgyXMQm84ZH0Psfw" target="_blank" rel="noreferrer"><img src={twitterIcon} alt="Tw" className="w-[23px] h-[23px]" /></a></li>
+                <ul className="ss:hidden flex flex-row justify-start items-center mt-4 mb-4 w-full">
+                    <li className="mr-4 ml-4"><a href="https://www.facebook.com" target="_blank" rel="noreferrer"><img src={facebookIcon} alt="FB" className="w-[30px] h-[30px]" /></a></li>
+                    <li className="mr-4"><a href="https://twitter.com/maticdrive1?s=11&t=7_0FyjTgyXMQm84ZH0Psfw" target="_blank" rel="noreferrer"><img src={twitterIcon} alt="Tw" className="w-[30px] h-[30px]" /></a></li>
                     {/* <li className=""><a href="https://wa.me/+2349055570782" target="_blank" rel="noreferrer"><img src={whatsappIcon} alt="Wh" className="icon-whatsapp" /></a></li> */}
-                    <li className=""><a href="https://instagram.com/maticdrive?igshid=YmMyMTA2M2Y=" target="_blank" rel="noreferrer"><img src={instagramIcon} alt="IG" className="w-[23px] h-[23px]" /></a></li>
-                    <li className=""><a href="https://www.linkedin.com/company/maticdrive" target="_blank" rel="noreferrer"><img src={linkedInIcon} alt="In" className="w-[23px] h-[23px]" /></a></li>
-                    <li className=""><a href="https://youtube.com/@maticdrive" target="_blank" rel="noreferrer"><img src={youtubeIcon} alt="Yt" className="w-[23px] h-[23px]" /></a></li>
+                    <li className="mr-4"><a href="https://instagram.com/maticdrive?igshid=YmMyMTA2M2Y=" target="_blank" rel="noreferrer"><img src={instagramIcon} alt="IG" className="w-[30px] h-[30px]" /></a></li>
+                    <li className="mr-4"><a href="https://www.linkedin.com/company/maticdrive" target="_blank" rel="noreferrer"><img src={linkedInIcon} alt="In" className="w-[30px] h-[30px]" /></a></li>
+                    <li className="mr-4"><a href="https://youtube.com/@maticdrive" target="_blank" rel="noreferrer"><img src={youtubeIcon} alt="Yt" className="w-[30px] h-[30px]" /></a></li>
                 </ul>
 
-                <div className="w-full text-gray-400 text-center mb-4 ss:mb-6 text-[14px] 
-                ss:text-[14px]">
-                    Copyright &copy; All rights reserved | MaticDrive Inc.
+                <div className="w-full mb-4 ss:mb-6">
+                    <div className="w-[300px] ml-4 text-gray-400 text-start text-[14px] xs:text-[14px] 
+                    sm:text-[14px]" >
+                        Copyright &copy; All rights reserved | MaticDrive Inc.
+                    </div>
                 </div>
 
             </div>

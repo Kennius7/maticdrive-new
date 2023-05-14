@@ -44,7 +44,7 @@ function App() {
       <div className={`flex flex-col bg-primary relative`}>
 
         <div className={`w-full ${scrolled 
-        ? "fixed z-[3] duration-1000 bg-primary" 
+        ? "bg-primary fixed z-[3] duration-1000" 
         : "bg-transparent absolute z-[3] duration-1000"}`}>
           <Navbar />
         </div>
