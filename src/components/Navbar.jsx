@@ -46,7 +46,7 @@ function Navbar() {
     const [user] = useAuthState(auth);
     const [currentlyLoggedInUser] = useAuthState(auth);
     const blogAdminUid = "gjSWaw1PnsZMfCntqQGDCSvErH93";
-
+    
 
 
     useEffect(() => {
@@ -59,7 +59,7 @@ function Navbar() {
         }
 
         window.addEventListener("scroll", onScroll);
-        console.log(currentlyLoggedInUser.uid);
+        
 
         return () => window.removeEventListener("scroll", onScroll);
     }, [])
@@ -101,7 +101,7 @@ function Navbar() {
                                 ? "text-[13px] navText1 duration-1000"
                                 : "text-[15px] navText2 duration-1000"} 
                                 ${user && nav.title === "Sign In" ? "hidden" : "block"}
-                                ${currentlyLoggedInUser.uid === blogAdminUid && nav.title === "Blog Admin"
+                                ${currentlyLoggedInUser && currentlyLoggedInUser.uid === blogAdminUid && nav.title === "Blog Admin"
                                 ? "hidden" : "block"}`}
                                 onClick={() => setActive(nav.title)}
                             >
@@ -148,7 +148,7 @@ function Navbar() {
                                     sm:mb-[20px] text-[15px] xs:text-[17px] sm:text-[30px] 
                                     ${active === nav.title ? "text-white" : "text-dimWhite"} 
                                     ${user && nav.title === "Sign In" ? "hidden" : "block"}
-                                    ${currentlyLoggedInUser.uid === blogAdminUid && nav.title === "Blog Admin"
+                                    ${currentlyLoggedInUser && currentlyLoggedInUser.uid === blogAdminUid && nav.title === "Blog Admin"
                                     ? "hidden" : "block"}`}
                                     onClick={() => {
                                         setActive(nav.title);
