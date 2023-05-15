@@ -87,9 +87,9 @@ function Navbar() {
                 </div>
             </div>
 
-            <div className="w-full sm:w-[500px] flex flex-1 justify-end items-center">
+            <div className="w-full md:w-full sm:w-[500px] flex flex-1 justify-end items-center">
 
-                <div className="w-[550px] md:flex hidden justify-end items-center">
+                <div className="w-[650px] md:flex hidden justify-end items-center">
                     <ul className={`list-none flex justify-center items-center`}>
                         {navLinks.map((nav) => (
                             <li
@@ -101,7 +101,7 @@ function Navbar() {
                                 ? "text-[13px] navText1 duration-1000"
                                 : "text-[15px] navText2 duration-1000"} 
                                 ${user && nav.title === "Sign In" ? "hidden" : "block"}
-                                ${currentlyLoggedInUser && currentlyLoggedInUser.uid === blogAdminUid && nav.title === "Blog Admin"
+                                ${currentlyLoggedInUser && currentlyLoggedInUser.uid !== blogAdminUid && nav.title == "Blog Admin"
                                 ? "hidden" : "block"}`}
                                 onClick={() => setActive(nav.title)}
                             >
@@ -148,7 +148,7 @@ function Navbar() {
                                     sm:mb-[20px] text-[15px] xs:text-[17px] sm:text-[30px] 
                                     ${active === nav.title ? "text-white" : "text-dimWhite"} 
                                     ${user && nav.title === "Sign In" ? "hidden" : "block"}
-                                    ${currentlyLoggedInUser && currentlyLoggedInUser.uid === blogAdminUid && nav.title === "Blog Admin"
+                                    ${currentlyLoggedInUser && currentlyLoggedInUser.uid !== blogAdminUid && nav.title === "Blog Admin"
                                     ? "hidden" : "block"}`}
                                     onClick={() => {
                                         setActive(nav.title);
