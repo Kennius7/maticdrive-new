@@ -149,6 +149,7 @@ function Navbar() {
                                     sm:mb-[20px] text-[15px] xs:text-[17px] sm:text-[30px] 
                                     ${active === nav.title ? "text-white" : "text-dimWhite"} 
                                     ${user && nav.title === "Sign In" ? "hidden" : "block"}
+                                    ${!user && nav.title === "Blog Admin" ? "hidden" : "block"}
                                     ${currentlyLoggedInUser && currentlyLoggedInUser.uid !== blogAdminUid && nav.title === "Blog Admin"
                                     ? "hidden" : "block"}`}
                                     onClick={() => {
