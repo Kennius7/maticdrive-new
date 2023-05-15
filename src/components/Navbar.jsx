@@ -58,7 +58,6 @@ function Navbar() {
         }
 
         window.addEventListener("scroll", onScroll);
-        console.log(currentlyLoggedInUser.uid);
 
         return () => window.removeEventListener("scroll", onScroll);
     }, [])
