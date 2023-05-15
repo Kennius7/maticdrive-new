@@ -61,7 +61,7 @@ function Navbar() {
         console.log(currentlyLoggedInUser.uid);
 
         return () => window.removeEventListener("scroll", onScroll);
-    }, [currentlyLoggedInUser.uid])
+    }, [])
 
 
     return (
@@ -175,7 +175,7 @@ function Navbar() {
 
 
                 <div className={`flex justify-center items-center text-primary font-bold rounded-[50%] 
-                    bg-text-gradient
+                    bg-text-gradient mr-2
                     ${user ? "block" : "hidden"} 
                     ${scrolled 
                     ? "w-[25px] h-[25px] xs:w-[30px] xs:h-[30px] sm:w-[50px] sm:h-[50px] md:w-[28px] md:h-[28px] text-[13px] xs:text-[16px] sm:text-[28px] md:text-[14px]" 
