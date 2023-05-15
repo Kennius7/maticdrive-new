@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -58,6 +59,7 @@ function Navbar() {
         }
 
         window.addEventListener("scroll", onScroll);
+        console.log(currentlyLoggedInUser.uid);
 
         return () => window.removeEventListener("scroll", onScroll);
     }, [])
