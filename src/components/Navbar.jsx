@@ -101,6 +101,7 @@ function Navbar() {
                                 ? "text-[13px] navText1 duration-1000"
                                 : "text-[15px] navText2 duration-1000"} 
                                 ${user && nav.title === "Sign In" ? "hidden" : "block"}
+                                ${!user && nav.title === "Blog Admin" ? "hidden" : "block"}
                                 ${currentlyLoggedInUser && currentlyLoggedInUser.uid !== blogAdminUid && nav.title == "Blog Admin"
                                 ? "hidden" : "block"}`}
                                 onClick={() => setActive(nav.title)}
