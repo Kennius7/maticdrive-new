@@ -21,7 +21,7 @@ function Hero() {
             <div className="w-full overflow-hidden md:h-[750px] sm:h-[700px] xs:h-[500px] h-[450px]">
                 <img src={heroPics} alt="hero pics"
                     className="w-full md:h-[800px] sm:h-[850px] xs:h-[600px] h-[600px] opacity-20 md:-mt-60 
-                    sm:-mt-[140px] xs:-mt-40 -mt-20"
+                    sm:-mt-[140px] xs:-mt-40 -mt-20 object-cover"
                     style={{ transform: `translateY(${offsetY * 0.3}px)` }}
                 />
                 <div className={`flex flex-col justify-center items-center my-20 md:-mt-[450px] sm:-mt-[640px] 
