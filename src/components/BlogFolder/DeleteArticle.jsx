@@ -28,7 +28,7 @@ function DeleteArticle({id, imageUrl}) {
 
 
   return (
-    <div className={`${currentlyLoggedInUser.uid === blogAdminUid ? "block" : "hidden"}`}>
+    <div className={`${currentlyLoggedInUser && currentlyLoggedInUser.uid === blogAdminUid ? "block" : "hidden"}`}>
       <i onClick={handleDelete} className={` fa fa-times fa-lg cursor-pointer hidden`} />
     </div>
     
