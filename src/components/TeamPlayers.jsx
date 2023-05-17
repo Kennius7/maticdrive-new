@@ -84,17 +84,17 @@ const TeamPlayers = () => {
       <div className={`w-full flex flex-col justify-center items-center overflow-hidden`}>
 
         <img src={heroPics} alt="hero pics"
-          className="ss:h-[1000px] h-[450px] contain opacity-10"
+          className="w-full xs:h-[1000px] h-[450px] object-cover opacity-10"
           style={{ transform: `translateY(${offsetY * 0.7}px)` }}
         />
 
-        <div className=" flex flex-col justify-center items-center ss:-mt-[800px] -mt-[350px] ss:mb-40 mb-10">
-          <div className={`w-full font-poppins text-white text-center ss:text-[45px] text-[25px] 
-            font-semibold ss:mb-12 mb-10 ss:tracking-normal tracking-[-1px]`}>
+        <div className="w-full flex flex-col justify-center items-center xs:-mt-[800px] -mt-[350px] xs:mb-40 mb-10">
+          <div className={`w-full font-poppins text-white text-center sm:text-[40px] xs:text-[35px] text-[25px] 
+            font-semibold sm:mb-12 xs:mb-10 mb-8 xs:tracking-normal tracking-[-1px]`}>
             Meet the MATIC<span className="text-gradient"> DRIVE</span> Team
           </div>
-          <p className={`ss:max-w-[650px] max-w-[350px] text-white text-center ss:text-[22px] 
-          text-[18px] ss:leading-[35px] leading-[30px] italic`}>
+          <p className={`text-white text-center italic sm:max-w-[75%] xs:max-w-[85%] max-w-[90%] 
+          sm:text-[25px] xs:text-[22px] text-[16px] sm:leading-[40px] xs:leading-[35px] leading-[25px]`}>
             An agile team experienced with machine learning and neural data AI systems production,
             development, deployment etc., we are poised and well equipped to capitalize on the nascent 
             African market for autonoumous vehicle technology.
@@ -102,39 +102,38 @@ const TeamPlayers = () => {
         </div>
       </div>
 
-      <div className="w-full ss:pb-20 pb-8">
-        <div className="flex flex-col justify-center items-center ss:mt-[80px] mt-[50px] ss:mb-[80px] mb-10">
-          <div className="text-center text-white font-poppins font-semibold ss:text-[25px] text-[19px] 
-            ss:mb-[12px] mb-[20px]">
+      <div className="w-full xs:pb-20 pb-8">
+        <div className="flex flex-col justify-center items-center xs:mt-[7%] mt-[50px] xs:mb-[80px] mb-10">
+          <div className="text-center text-white font-poppins font-semibold sm:text-[30px] xs:text-[25px] text-[19px] 
+            xs:mb-[12px] mb-[20px]">
             Matic <span className="text-gradient">Drive</span> Core Team
           </div>
-          <hr className="ss:w-[40%] w-[75%] mb-1 opacity-40"/>
-          <hr className="ss:w-[35%] w-[65%] mb-1 opacity-40"/>
-          <hr className="ss:w-[30%] w-[55%] mb-1 opacity-40"/>
-          <hr className="ss:w-[25%] w-[45%] mb-1 opacity-40"/>
-          <hr className="ss:w-[20%] w-[35%] mb-1 opacity-40"/>
+          <div className="w-full flex flex-col justify-center items-center">
+            <hr className="xs:w-[60%] w-[75%] mb-1 opacity-40"/>
+            <hr className="xs:w-[50%] w-[65%] mb-1 opacity-40"/>
+            <hr className="xs:w-[40%] w-[55%] mb-1 opacity-40"/>
+            <hr className="xs:w-[30%] w-[45%] mb-1 opacity-40"/>
+            <hr className="xs:w-[20%] w-[35%] mb-1 opacity-40"/>
+          </div>
         </div>
 
-        <div className="flex flex-wrap justify-center items-center">
+        <div className="w-full flex flex-wrap justify-center items-center">
           {teamMembers.map((card) => (
-            <div key={card.id} className="ss:m-2 m-3 flex flex-col justify-center items-center 
-            ss:w-[210px] ss:h-[210px] w-[120px] h-[120px]">
-              <div className="">
-                <img src={card.img} alt={card.name} className="ss:w-[155px] ss:h-[155px] w-[98px] 
-                  h-[98px] border-2 border-yellow-300 bg-center bg-cover rounded-[50%]" />
-                <img src={logo} alt="logo" className="ss:-mt-20 ss:mb-4 -mt-10 -ml-3 mb-1 ss:w-[40px] 
-                  ss:h-[40px] w-[30px] h-[30px] border-2 border-yellow-300 border-opacity-10 bg-center 
-                  bg-cover rounded-[50%]" />
+            <div key={card.id} className="flex flex-col justify-center items-center md:w-[23%] md:h-[23%] 
+              sm:w-[30%] sm:h-[30%] xs:w-[30%] xs:h-[30%] w-[47%] h-[47%] md:mb-6 sm:mb-8 xs:mb-6 mb-4 xs:mx-1 mx-0">
+              <div className="relative md:w-[80%] md:h-[80%] w-[90%] h-[90%] flex justify-center items-center">
+                <img src={card.img} alt={card.name} className="xs:w-[92%] xs:h-[92%] w-[90%] h-[90%] 
+                  border-2 border-yellow-300 bg-center bg-cover rounded-[50%]" />
+                <img src={logo} alt="logo" className="absolute z-1 top-[70%] right-[70%] xs:w-[25%] xs:h-[25%] w-[26%] h-[26%] 
+                  border-2 border-yellow-300 border-opacity-10 bg-center bg-cover rounded-[50%]" />
               </div>
 
-              <div className="flex flex-col items-center text-center rounded-[10px] ss:mt-2 sm:mt-8 
-                mt-2 ss:max-w-[400px]">
-                <h4 className="font-poppins ss:font-bold font-semibold ss:text-[16px] sm:text-[20px] 
-                  ss:w-[400px] w-[150px] text-[12px] ss:leading-[25px] text-white">
+              <div className="w-full flex flex-col items-center text-center rounded-[10px] sm:mt-4 xs:mt-2 mt-1">
+                <h4 className="font-poppins xs:font-bold font-semibold sm:text-[22px] xs:text-[16px] text-[13px]
+                  xs:w-[99%] w-[99%] xs:leading-[25px] text-white">
                   {card.name}
                 </h4>
-                <p className="font-poppins font-normal ss:text-[12px] sm:text-[14px] text-[10px] 
-                  ss:leading-[25px] text-white">
+                <p className="font-poppins font-normal sm:text-[16px] xs:text-[13px] text-[10px] text-white">
                   {card.title}
                 </p>
               </div>

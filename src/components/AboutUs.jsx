@@ -70,15 +70,14 @@ const AboutUs = () => {
 
       <div className="flex sm:flex-row flex-col sm:justify-between justify-around items-center sm:h-[600px]">
 
-        <div className="sm:flex hidden overflow-hidden justify-center items-center w-[50%] h-full">
+        <div className="sm:flex hidden overflow-hidden justify-center items-center w-[50%] md:h-full h-[80%]">
           <img src={aboutUsPics} alt="aboutus pics" 
           className="w-full h-[800px] object-cover"
           style={{ transform: `translateY(${offsetY * 0.2}px)` }} 
           />
         </div>
 
-        <div className="w-full sm:hidden flex items-center justify-center overflow-hidden xs:h-[400px] h-[300px] 
-        bg-blue-300">
+        <div className="w-full sm:hidden flex items-center justify-center overflow-hidden xs:h-[400px] h-[220px]">
           <img src={aboutUsPics} alt="aboutus pics" 
             className="w-full xs:h-[500px] h-[500px] object-cover xs:-mt-[160px] -mt-[50px] opacity-90"
             style={{ transform: `translateY(${offsetY * 0.3}px)` }}  
@@ -86,27 +85,31 @@ const AboutUs = () => {
         </div>
 
 
-        <div className="w-full overflow-hidden sm:w-[50%] sm:h-full xs:h-[700px] h-[720px]">
+        <div className="w-full overflow-hidden relative sm:w-[50%] sm:h-full xs:h-[660px] h-[680px]">
           <img src={avbg} alt="AV pics" className="w-full h-full opacity-20 object-cover" />
-          <div className={`w-full flex flex-col justify-center md:-mt-[600px] sm:-mt-[600px] xs:-mt-[690px] 
-          -mt-[700px]`}>
+          <div className={`w-full flex flex-col justify-center absolute z-1 md:top-[3%] sm:top-[0] xs:top-[6%] 
+          top-[1%] right-[0%]`}>
             {features.map((feature) => (
               <div key={feature.id} 
                   className={`flex flex-col justify-center items-center
-                  ${feature.id !== feature.length - 1 ? "md:mb-2 sm:mb-3 mb-6" : "md:mb-0 sm:mb-0 mb-0"}`}
+                  ${feature.id !== feature.length - 1 ? "md:mb-2 sm:mb-3 mb-2" : "md:mb-0 sm:mb-0 mb-0"}`}
               >
-                <div className="flex justify-start items-center w-[98%] h-[50px] rounded-[5px] bg-primary2 xs:mt-0 mt-1">
-                  <img src={feature.icon} alt="star" 
-                    className=" xs:w-[45px] xs:h-[45px] w-[35px] h-[35px]"
-                  />
-                  <h4 className="pl-2 font-poppins font-semibold text-white text-center 
-                    xs:text-[17px] text-[15px]">{feature.title}</h4>
+                <div className="w-[280px] xxs:w-full xxs:p-1 p-0 flex flex-col justify-center items-center"> 
+                  <div className="flex justify-start items-center w-[98%] h-[50px] rounded-[5px] bg-primary">
+                    <img src={feature.icon} alt="star" 
+                      className=" xs:w-[45px] xs:h-[45px] w-[35px] h-[35px]"
+                    />
+                    <h4 className="pl-2 font-poppins font-semibold text-white text-center 
+                      xs:text-[17px] text-[15px]">{feature.title}</h4>
+                  </div>
+                  <hr className="w-[99%] border border-white bg-white" />
+                  <p className="w-[100%] pl-1 pt-1 font-poppins font-normal text-white italic 
+                    md:text-[15px] sm:text-[14px] xs:text-[15px] xxs:text-[14px] text-[13px] 
+                    md:leading-[19px] sm:leading-[17px] xs:leading-[20px] xxs:leading-[18px] leading-[17px] 
+                    newline">
+                    {feature.content}
+                  </p>
                 </div>
-                <hr className="w-[98%] border border-white bg-white" />
-                <p className="xs:my-2 my-1 xs:mx-4 mx-2 font-poppins font-normal text-white italic 
-                xs:text-[15px] text-[14px] md:leading-[19px] sm:leading-[17px] xs:leading-[20px] leading-[18px] newline">
-                  {feature.content}
-                </p>
               </div>
             ))}
           </div>
@@ -120,9 +123,9 @@ const AboutUs = () => {
           className="w-full sm:h-[600px] xs:h-[600px] h-[500px] opacity-20 md:-mt-[400px] sm:-mt-[300px] 
           xs:-mt-[500px] -mt-[450px] object-cover"
           style={{ transform: `translateY(${offsetY * 0.3}px)` }} />
-        <p className={`md:max-w-[450px] sm:max-w-[550px] xs:max-w-[450px] max-w-[280px] text-white text-center 
-        md:text-[24px] sm:text-[28px] xs:text-[23px] text-[18px] italic md:-mt-[80px] sm:-mt-[180px] 
-        xs:-mt-[20px] mt-[30px] xs:leading-[35px] leading-[25px]`}>
+        <p className={`md:max-w-[42%] sm:max-w-[52%] xs:max-w-[80%] max-w-[92%] text-white text-center 
+        md:text-[24px] sm:text-[28px] xs:text-[23px] text-[18px] italic md:-mt-[80px] sm:-mt-[23%] 
+        xs:-mt-[5%] mt-[2%] xs:leading-[35px] leading-[25px]`}>
           We create and embed AI powered autonomous navigation features
           set to make your AVs gallant and trustworthy automobile for African terrains
         </p>
