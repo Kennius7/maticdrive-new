@@ -347,7 +347,7 @@ button:focus-visible {
   position: absolute;
   width: 100%;
   background-color: rgb(223, 219, 219);
-  padding: 10px;
+  padding: 3px;
   z-index: 2;
   transition: transform .5s;
 }
@@ -358,7 +358,7 @@ button:focus-visible {
   justify-self: center;
   background-color: #214d76;
   width: 50%;
-  height: 50px;
+  height: 40px;
 }
 
 .form__submit{
@@ -367,8 +367,6 @@ button:focus-visible {
   height: 100%;
   position: absolute;
   color: white;
-  font-weight: bold;
-  font-size: 15px;
   background-color: #0c1488;
   cursor: pointer;
   transition: transform .3s;

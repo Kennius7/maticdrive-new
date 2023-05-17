@@ -46,7 +46,6 @@ function Navbar() {
     const [user] = useAuthState(auth);
     const [currentlyLoggedInUser] = useAuthState(auth);
     const blogAdminUid = "gjSWaw1PnsZMfCntqQGDCSvErH93";
-    
 
 
     useEffect(() => {

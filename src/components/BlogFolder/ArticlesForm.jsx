@@ -21,6 +21,7 @@ import heroPics from "../../assets/about-a.jpeg";
 
 function ArticlesForm() {
   const [user] = useAuthState(auth);
+  const [currentlyLoggedInUser] = useAuthState(auth);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -30,6 +31,7 @@ function ArticlesForm() {
   const [postContent, setPostContent] = useState("");
   const [progress, setProgress] = useState(0);
   const [offsetY, setOffsetY] = useState(0);
+  const blogAdminUid = "gjSWaw1PnsZMfCntqQGDCSvErH93";
   const handleScroll = () => { setOffsetY(window.pageYOffset) };
   // const editorConfiguration = {
   //   plugins: [ Essentials, Bold, Italic, Paragraph ],
@@ -103,43 +105,42 @@ function ArticlesForm() {
     <div className='text-white flex flex-col'>
 
       {
-        !user
+        !user || currentlyLoggedInUser && currentlyLoggedInUser.uid !== blogAdminUid
           ?
           <div className='flex flex-col justify-center items-center p-2 mx-4 mb-56 mt-60 bg-black-gradient-2 rounded-[10px] box-shadow'>
             <span className='font-semibold my-4 text-[22px]'><Link className='text-[30px] text-gradient' to="/signin">Login</Link> to access Blog Section</span>
             <div className="font-semibold mb-4">Don&apos;t have an account? <Link className='text-gradient' to="/signup">Sign up</Link></div>
           </div>
           :
-          <div className='flex justify-center items-center relative'>
+          <div className="flex justify-center items-center">
 
-            <div className={`w-full flex flex-col justify-center items-center overflow-hidden`}>
+            <div className={`w-full flex flex-col justify-center items-center overflow-hidden relative h-[500px]`}>
+
               <img src={heroPics} alt="hero pics"
-                className="w-full ss:h-[1000px] h-[500px] opacity-10"
-                style={{ transform: `translateY(${offsetY * 0.7}px)` }}
+                className="w-full xs:h-[1000px] h-[600px] opacity-10 object-cover"
+                style={{ transform: `translateY(${offsetY * 0.4}px)` }}
               />
 
-              <div className="flex flex-col justify-center items-center w-full ss:mt-[150px] 
-              absolute z-[1]">
+              <div className="w-full flex flex-col justify-center items-center absolute z-[1] top-[20%]">
 
-                <div className='font-poppins font-bold text-[25px] text-center 
-                my-4 mb-10'>Create Article</div>
-                <div className="flex flex-col justify-center items-center">
-                  <div className='flex flex-col mb-4 w-full'>
-                    <label htmlFor="">Title</label>
+                <div className="font-poppins font-bold text-[22px] text-center">Create article</div>
+
+                <div className="flex flex-col justify-center items-center w-[90%]">
+                  <div className="w-full flex flex-col justify-center items-center">
                     <textarea
-                      className='bg-white opacity-50 text-primary placeholder-gray-400 w-[400px]'
-                      placeholder='Post Title' type='text' name='title' value={formData.title}
+                      className="w-full bg-white opacity-50 text-primary placeholder-gray-400"
+                      placeholder="Title" type="text" name="title" value={formData.title}
                       onChange={(e) => handleChange(e)} />
                   </div>
-                  <div className='flex flex-col mb-4 w-full'>
-                    <label htmlFor="">Description</label>
+                  <div className="w-full flex flex-col justify-center items-center">
                     <textarea
-                      className='bg-white opacity-50 text-primary placeholder-gray-400 w-[400px]'
-                      placeholder='Post Description' name="description" value={formData.description}
+                      className="w-full bg-white opacity-50 text-primary placeholder-gray-400"
+                      placeholder="Description" name="description" value={formData.description}
                       onChange={(e) => handleChange(e)} />
                   </div>
                 </div>
-                <div className='flex flex-col mb-4 mt-8'>
+
+                <div className="w-full flex flex-col mb-4 mt-8">
                   <div className="font-poppins font-semibold text-[25px] text-center text-white mb-8">Post Content</div>
                   <CKEditor
                     editor={ClassicEditor}
