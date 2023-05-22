@@ -424,5 +424,9 @@ button:focus-visible {
 /* //////////////////////////////////====END OF CONTACT FORM CSS====///////////////////////////////////// */
 
 
+.editor{
+  color: black;
+  background-color: white;
+}
 
 

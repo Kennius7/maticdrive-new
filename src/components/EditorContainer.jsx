@@ -8,13 +8,18 @@ class EditorContainer extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { editorState: EditorState.createEmpty() }
+        this.state = ({ editorState: EditorState.createEmpty() })
     }
 
+componentDidMount () {
+    this.onEditorStateChange()
+}
+
     onEditorStateChange = (editorState) => {
+        this.setState({ editorState });
         console.log(editorState);
-        this.setState({ editorState, });
     }
+
 
     render() {
         const { editorState } = this.state;
