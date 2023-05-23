@@ -2,20 +2,15 @@ import { Timestamp, addDoc, collection } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import { storage, db, auth } from '../../../firebaseConfig';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from 'react-router-dom';
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-// import { Essentials } from '@ckeditor/ckeditor5-essentials';
-// import { Bold, Italic } from "@ckeditor/ckeditor5-basic-styles";
-// import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
-
-
-import EditorContainer from '../EditorContainer';
-import parse from "html-react-parser";
+import ReactQuill from 'react-quill';
+import "../../../node_modules/react-quill/dist/quill.snow.css";
 import heroPics from "../../assets/about-a.jpeg";
+// import parse from "html-react-parser";
+
 
 
 
@@ -33,10 +28,28 @@ function ArticlesForm() {
   const [offsetY, setOffsetY] = useState(0);
   const blogAdminUid = "gjSWaw1PnsZMfCntqQGDCSvErH93";
   const handleScroll = () => { setOffsetY(window.pageYOffset) };
-  // const editorConfiguration = {
-  //   plugins: [ Essentials, Bold, Italic, Paragraph ],
-  //   toolbar: [ "bold", "italic" ]
-  // }
+
+
+  ArticlesForm.modules = {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, 6] }, { font: [] }],
+      [{ size: [] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["link", "image", "video"],
+      ["clean"],
+      ["code-block"]
+    ],
+  },
+
+  ArticlesForm.formats = [
+    "header", "font", "size", "bold",
+    "italic", "underline", "strike",
+    "blockquote", "list", "bullet",
+    "link", "image", "video",
+    "code-block"
+  ]
+
 
 
   useEffect(() => {
@@ -102,7 +115,7 @@ function ArticlesForm() {
 
 
   return (
-    <div className='text-white flex flex-col'>
+    <div className="flex flex-col">
 
       {
         !user || currentlyLoggedInUser && currentlyLoggedInUser.uid !== blogAdminUid
@@ -119,67 +132,85 @@ function ArticlesForm() {
           :
           <div className="flex justify-center items-center">
 
-            <div className={`w-full flex flex-col justify-center items-center overflow-hidden relative h-[1000px]`}>
+            <div className={`w-full flex flex-col justify-center items-center overflow-hidden relative 
+              sm:h-[1150px] xs:h-[1100px] h-[1000px]`}>
 
               <img src={heroPics} alt="hero pics"
-                className="w-full xs:h-[1000px] h-[1200px] opacity-10 object-cover"
+                className="w-full opacity-10 object-cover sm:h-[1350px] xs:h-[1300px] h-[1200px]"
                 style={{ transform: `translateY(${offsetY * 0.5}px)` }}
               />
 
-              <div className="w-full flex flex-col justify-center items-center absolute z-[4] top-[10%]">
+              <div className="w-full flex flex-col justify-center md:items-center xs:items-start items-center 
+                absolute z-[1] sm:top-[16%] xs:top-[12%] top-[10%] md:pl-8 xs:pl-4 pl-0">
 
-                <div className="font-poppins font-bold text-[22px] text-center italic">Create article</div>
+                <div className="md:w-[70%] font-poppins font-bold md:text-start text-center text-white italic mb-4 
+                  md:text-[25px] sm:text-[30px] xs:text-[22px] text-[18px]">
+                  Write a new article
+                </div>
 
-                <div className="flex flex-col justify-center items-center w-[90%]">
-                  <div className="w-full flex flex-col justify-center items-center">
+                <div className="flex flex-col justify-center items-center md:w-[70%] sm:w-[90%] xs:w-[80%] 
+                  w-[98%] mb-4">
+                  <div className="w-full flex flex-col justify-center items-center mb-4">
                     <textarea
-                      className="w-full bg-white opacity-70 text-primary placeholder-gray-400"
+                      className="w-full bg-white text-primary placeholder:italic
+                      sm:placeholder:p-1 placeholder:p-1 placeholder-gray-500 md:placeholder:text-[15px] 
+                      sm:placeholder:text-[17px] placeholder:text-[13px] h-[35px]"
                       placeholder="Title" type="text" name="title" value={formData.title}
-                      onChange={(e) => handleChange(e)} />
+                      onChange={handleChange} />
                   </div>
                   <div className="w-full flex flex-col justify-center items-center">
                     <textarea
-                      className="w-full bg-white opacity-70 text-primary placeholder-gray-400"
+                      className="w-full bg-white text-primary placeholder:italic
+                      sm:placeholder:p-1 placeholder:p-1 placeholder-gray-500 md:placeholder:text-[15px] 
+                      sm:placeholder:text-[17px] placeholder:text-[13px] h-[35px]"
                       placeholder="Description" name="description" value={formData.description}
-                      onChange={(e) => handleChange(e)} />
+                      onChange={handleChange} />
                   </div>
                 </div>
 
-                <div className="w-full flex flex-col">
-                  <div className="font-poppins font-semibold text-[25px] text-center text-white mb-8">Post Content</div>
-                  <CKEditor
-                    editor={ClassicEditor}
-                    data={postContent}
-                    onChange={(event, editor) => {
-                      const data = editor.getData();
-                      setPostContent(data);
-                    }}
+                <div className="w-full flex flex-col justify-center md:items-center xs:items-start items-center 
+                  md:mb-[120px] mb-[150px]">
+                  <ReactQuill
+                    className="bg-white text-blue-500 md:w-[70%] sm:w-[90%] xs:w-[80%] w-[98%] h-[400px]"
+                    theme="snow"
+                    value={postContent}
+                    placeholder="Write something awesome..."
+                    modules={ArticlesForm.modules}
+                    formats={ArticlesForm.formats}
+                    onChange={(event) => {setPostContent(event)}}
                   />
-                  <EditorContainer />
                 </div>
 
-                <div className='text-blue-500 w-[400px] h-[100px] bg-red-200'>
-                  {parse(postContent)}
-                </div>
-
-
-                <label htmlFor="">Image</label>
-                <input type='file' name='image' accept='image/*' onChange={(e) => handleImageChange(e)} />
-
-                {progress === 0 ? null : (
-                  <div className="">
-                    <div className="progress">
-                      <div className={`w-[${progress}%] h-[20px] bg-blue-300`}>
-                        {`Uploading Image ${progress}%`}
-                      </div>
-                    </div>
+                <div className="w-full flex flex-col justify-center md:items-center xs:items-start items-center 
+                  text-white md:mb-16 sm:mb-20 xs:mb-16 mb-12">
+                  <label htmlFor="" className="italic mb-1 ml-1">Header Image Upload</label>
+                  <input 
+                    type='file' 
+                    name='image' 
+                    accept='image/*' 
+                    onChange={handleImageChange} 
+                    className="md:w-[70%] sm:w-[90%] xs:w-[80%] w-[98%] bg-dimWhite" />
+                  <div className="w-full flex flex-col justify-center md:items-center xs:items-start items-center">
+                    {progress === 0 
+                      ? <hr className="md:w-[70%] sm:w-[90%] xs:w-[80%] w-[98%] md:mt-4 mt-2"/> 
+                      : <div className="flex justify-start items-center w-[99%] bg-white h-[20px] rounded-[4px]">
+                          <div className={`w-[${progress}%] h-[18px] bg-blue-600 rounded-[3px] text-[14px]`}>
+                            {`Uploading Image ${progress}%`}
+                          </div>
+                        </div>
+                    }
                   </div>
-                )}
+                </div>
 
-                <button 
-                  onClick={handlePublish}
-                  className="w-[100px] h-[30px] rounded-[8px] bg-blue-500 mt-10">Publish
-                </button>
+                <div className="md:w-[70%] sm:w-[90%] xs:w-[80%] w-[98%] flex justify-start items-center">
+                  <button 
+                    onClick={handlePublish}
+                    className="rounded-[5px] bg-blue-700 text-white font-semibold w-full md:h-[40px] 
+                      sm:h-[55px] xs:h-[45px] h-[35px] text-center md:text-[18px] sm:text-[20px] 
+                      xs:text-[18px] text-[14px] xs:pl-0 pl-2 tracking-[1px]">
+                      Publish
+                  </button>
+                </div>
               </div>
 
             </div>

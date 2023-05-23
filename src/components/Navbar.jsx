@@ -76,14 +76,16 @@ function Navbar() {
                         m-2`}
                     />
                 </Link>
-                <div className="w-full flex flex-col justify-center items-center">
-                    <div className={`${scrolled
-                        ? "md:text-[20px] sm:text-[35px] xs:text-[20px] text-[17px] duration-1000"
-                        : "md:text-[22px] sm:text-[40px] xs:text-[22px] text-[20px] duration-1000"} 
-                        font-bold text-white w-full flex justify-start items-center`}>
-                        Matic<span className="text-gradient">&nbsp;Drive</span>
+                <Link to="/">
+                    <div className="w-full flex flex-col justify-center items-center">
+                        <div className={`${scrolled
+                            ? "md:text-[20px] sm:text-[35px] xs:text-[20px] text-[17px] duration-1000"
+                            : "md:text-[22px] sm:text-[40px] xs:text-[22px] text-[20px] duration-1000"} 
+                            font-bold text-white w-full flex justify-start items-center`}>
+                            Matic<span className="text-gradient">&nbsp;Drive</span>
+                        </div>
                     </div>
-                </div>
+                </Link>
             </div>
 
             <div className="w-full md:w-full sm:w-[500px] flex flex-1 justify-end items-center">
