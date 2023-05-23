@@ -8,7 +8,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import "../../../node_modules/react-quill/dist/quill.snow.css";
-import heroPics from "../../assets/about-a.jpeg";
+import heroPics from "../../assets/image_5.jpg";
 // import parse from "html-react-parser";
 
 
@@ -112,21 +112,28 @@ function ArticlesForm() {
 
 
 
-
-
   return (
     <div className="flex flex-col">
 
       {
         !user || currentlyLoggedInUser && currentlyLoggedInUser.uid !== blogAdminUid
           ?
-          <div className='flex flex-col justify-center items-center p-2 mx-4 mb-56 mt-60 bg-black-gradient-2 
-            rounded-[10px] box-shadow'>
-            <span className='font-semibold my-4 text-[22px]'>
-              <Link className='text-[30px] text-gradient' to="/signin">Login</Link> to access Blog Section
-            </span>
-            <div className="font-semibold mb-4">Don&apos;t have an account? 
-              <Link className='text-gradient' to="/signup">Sign up</Link>
+          <div className="w-full flex flex-col justify-center items-center overflow-hidden relative 
+            md:h-[600px] sm:h-[1050px] xs:h-[600px] h-[700px]">
+            <img src={heroPics} alt="hero pics"
+                className="w-full opacity-10 object-cover sm:h-[1150px] xs:h-[700px] h-[1100px]"
+                style={{ transform: `translateY(${offsetY * 0.5}px)` }}
+            />
+            <div className="flex flex-col justify-center items-center absolute z-[1] xs:top-[40%] top-[35%]">
+              <span className="font-semibold sm:text-[32px] xs:text-[22px] text-[18px] text-white">
+                <Link to="/signin" className="sm:text-[38px] xs:text-[25px] text-[20px] text-gradient">
+                  Login
+                </Link> to access Blog Section
+              </span>
+              <div className="font-semibold text-dimWhite sm:text-[25px] xs:text-[18px] text-[15px] mb-4">
+                Don&apos;t have an account? 
+                <Link className="sm:text-[28px] xs:text-[20px] text-[17px] text-gradient" to="/signup"> Sign up</Link>
+              </div>
             </div>
           </div>
           :
