@@ -88,11 +88,11 @@ const AboutUs = () => {
         <div className="w-full overflow-hidden relative sm:w-[50%] sm:h-full xs:h-[660px] h-[680px]">
           <img src={avbg} alt="AV pics" className="w-full h-full opacity-20 object-cover" />
           <div className={`w-full flex flex-col justify-center absolute z-1 md:top-[3%] sm:top-[0] xs:top-[6%] 
-          top-[1%] right-[0%]`}>
+            top-[1%] right-[0%]`}>
             {features.map((feature) => (
               <div key={feature.id} 
-                  className={`flex flex-col justify-center items-center
-                  ${feature.id !== feature.length - 1 ? "md:mb-2 sm:mb-3 mb-2" : "md:mb-0 sm:mb-0 mb-0"}`}
+                className={`flex flex-col justify-center items-center
+                ${feature.id !== feature.length - 1 ? "md:mb-2 sm:mb-3 mb-2" : "md:mb-0 sm:mb-0 mb-0"}`}
               >
                 <div className="w-[280px] xxs:w-full xxs:p-1 p-0 flex flex-col justify-center items-center"> 
                   <div className="flex justify-start items-center w-[98%] h-[50px] rounded-[5px] bg-primary">
@@ -104,8 +104,8 @@ const AboutUs = () => {
                   </div>
                   <hr className="w-[99%] border border-white bg-white" />
                   <p className="w-[100%] pl-1 pt-1 font-poppins font-normal text-white italic 
-                    md:text-[15px] sm:text-[14px] xs:text-[15px] xxs:text-[14px] text-[13px] 
-                    md:leading-[19px] sm:leading-[17px] xs:leading-[20px] xxs:leading-[18px] leading-[17px] 
+                    md:text-[15px] sm:text-[14px] xs:text-[15px] xxs:text-[13px] text-[12px] 
+                    md:leading-[19px] sm:leading-[17px] xs:leading-[20px] xxs:leading-[17px] leading-[16px] 
                     newline">
                     {feature.content}
                   </p>
