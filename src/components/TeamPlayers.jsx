@@ -124,16 +124,17 @@ const TeamPlayers = () => {
               <div className="relative md:w-[80%] md:h-[80%] w-[90%] h-[90%] flex justify-center items-center">
                 <img src={card.img} alt={card.name} className="xs:w-[92%] xs:h-[92%] w-[90%] h-[90%] 
                   border-2 border-yellow-300 bg-center bg-cover rounded-[50%]" />
-                <img src={logo} alt="logo" className="absolute z-1 top-[70%] right-[70%] xs:w-[25%] xs:h-[25%] w-[26%] h-[26%] 
+                <img src={logo} alt="logo" className="absolute z-1 md:top-[77%] md:right-[70%] top-[70%] right-[70%] md:w-[20%] md:h-[20%] xs:w-[25%] xs:h-[25%] w-[26%] h-[26%] 
                   border-2 border-yellow-300 border-opacity-10 bg-center bg-cover rounded-[50%]" />
               </div>
 
               <div className="w-full flex flex-col items-center text-center rounded-[10px] sm:mt-4 xs:mt-2 mt-1">
-                <h4 className="font-poppins xs:font-bold font-semibold sm:text-[22px] xs:text-[16px] text-[13px]
-                  xs:w-[99%] w-[99%] xs:leading-[25px] text-white">
+                <h4 className="font-poppins xs:font-bold font-semibold md:text-[16px] sm:text-[22px] 
+                  xs:text-[16px] text-[13px] xs:w-[99%] w-[99%] xs:leading-[25px] text-white">
                   {card.name}
                 </h4>
-                <p className="font-poppins font-normal sm:text-[16px] xs:text-[13px] text-[10px] text-white">
+                <p className="font-poppins font-normal md:text-[13px] sm:text-[16px] xs:text-[13px] text-[10px] 
+                  text-white">
                   {card.title}
                 </p>
               </div>

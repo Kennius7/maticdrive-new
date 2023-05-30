@@ -12,20 +12,15 @@ import SignInPage from './pages/SignInPage';
 import ArticlesForm from "./components/BlogFolder/ArticlesForm";
 import Article from "./components/BlogFolder/Article";
 
-// import { HashLoader } from 'react-spinners';
 
 
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
-  // // const [loader, setLoader] = useState(false);
 
 
   useEffect(() => {
-  //   // setLoader(true);
-  //   // setTimeout(() => {
-  //   //   setLoader(false);
-  //   // }, 3000);
+
     const onScroll = () => {
       if (window.scrollY > 50) {
         setScrolled(true);
