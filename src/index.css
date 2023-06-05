@@ -105,6 +105,7 @@ button:focus-visible {
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
 }
 
@@ -429,6 +430,10 @@ button:focus-visible {
   background-color: white;
 }
 
+
+
+/**********************************************END OF MATIC DRIVE CSS FILE******************************************/
+/**********************************************END OF MATIC DRIVE CSS FILE******************************************/
 
 
 
