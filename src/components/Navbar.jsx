@@ -67,20 +67,20 @@ function Navbar() {
     return (
         <nav className={`w-full flex justify-around items-center`}>
 
-            <div className="md:w-[200px] sm:w-[350px] xs:w-[280px] w-[170px] flex justify-start items-center">
-                <Link to="/" className='flex justify-center items-center md:w-[80px] sm:w-[150px] xs:w-[80px] w-[80px]'>
+            <div className="md:w-[200px] sm:w-[350px] xs:w-[40%] w-[50%] flex justify-start items-center">
+
+                <Link to="/" className="flex justify-center items-center md:w-[35%] w-[30%]">
                     <img src={logo} alt="Maticdrive logo"
-                        className={`${scrolled
-                            ? "w-[40px] h-[40px] xs:w-[50px] xs:h-[50px] sm:w-[80px] sm:h-[80px] md:w-[50px] md:h-[50px] duration-1000"
-                            : "w-[50px] h-[50px] xs:w-[55px] xs:h-[55px] sm:w-[90px] sm:h-[90px] md:w-[60px] md:h-[60px] duration-1000"} 
-                        m-2`}
+                        className={`w-[40px] h-[40px] xs:w-[55px] xs:h-[55px] sm:w-[80px] sm:h-[80px] 
+                        md:w-[60px] md:h-[60px] duration-1000 m-2`}
                     />
                 </Link>
-                <Link to="/">
+
+                <Link to="/" className="md:w-[65%] w-[70%] flex justify-center items-center">
                     <div className="w-full flex flex-col justify-center items-center">
-                        <div className={`${scrolled
-                            ? "md:text-[20px] sm:text-[35px] xs:text-[20px] text-[17px] duration-1000"
-                            : "md:text-[22px] sm:text-[40px] xs:text-[22px] text-[20px] duration-1000"} 
+                        <div className={`w-full ${scrolled
+                            ? "md:text-[20px] sm:text-[25px] xs:text-[20px] text-[16px] duration-1000"
+                            : "md:text-[22px] sm:text-[28px] xs:text-[22px] text-[17px] duration-1000"} 
                             font-bold text-white w-full flex justify-start items-center`}>
                             Matic<span className="text-gradient">&nbsp;Drive</span>
                         </div>

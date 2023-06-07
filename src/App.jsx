@@ -15,12 +15,11 @@ import Article from "./components/BlogFolder/Article";
 
 
 
+
 function App() {
   const [scrolled, setScrolled] = useState(false);
 
-
   useEffect(() => {
-
     const onScroll = () => {
       if (window.scrollY > 50) {
         setScrolled(true);
