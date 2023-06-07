@@ -90,8 +90,7 @@ const AboutUs = () => {
 
         </div>
 
-        <div className="sm:hidden w-full flex items-center justify-center overflow-hidden bg-blue-400
-          xs:h-[400px] h-[300px]">
+        <div className="sm:hidden w-full flex items-center justify-center overflow-hidden xs:h-[400px] h-[300px]">
 
           <img src={aboutUsPics} alt="aboutus pics" 
             className="w-full xs:h-[500px] h-[450px] object-cover xs:-mt-[160px] -mt-[100px] opacity-90"
