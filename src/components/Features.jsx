@@ -61,7 +61,7 @@ const Features = () => {
 
   return (
     <section className={`flex md:flex-row flex-col md:justify-around justify-center 
-      md:items-center xs:items-start items-center w-full md:my-8 my-4`}>
+      md:items-center xs:items-start items-center w-full md:my-8 sm:my-10 my-4`}>
 
       <div className="md:hidden flex flex-col justify-center items-center text-white w-full my-4">
         <h2 className={`sm:w-[90%] xs:w-[90%] w-full md:text-[45px] sm:text-[50px] xs:text-[35px] text-[28px] font-semibold 
@@ -78,30 +78,33 @@ const Features = () => {
           <FeatureSlider 
             slides={featureSlide} 
             autoSlide={true} 
-            autoSlideInterval={5000} 
-            chevronSize={50}
-            chevronOpacity={30} />
+            autoSlideInterval={10000} 
+            chevronSizeMD={40}
+            chevronSizeSM={50}
+            chevronSizeXS={45}
+            chevronSize={25}
+            chevronOpacity={40} />
         </div>
       </div>
 
-      <div className={`flex flex-col justify-center items-center md:w-[40%] w-full text-white`}>
+      <div className={`flex flex-col justify-center items-center md:w-[40%] w-full text-white mt-[30px]`}>
 
         <h2 className={`md:block hidden w-full md:text-[45px] xs:text-[35px] text-[28px] font-semibold 
           md:leading-[60px] xs:leading-[40px] leading-[30px]`}>
-          MATIC<span className="text-gradient">DRIVE</span> AVs <br /> Features & Technologies
+          MATIC<span className="text-gradient">&nbsp;DRIVE</span> AVs <br /> Features & Technologies
         </h2>
 
-        <p className={`md:w-full sm:w-[88%] xs:w-[90%] w-[95%] mt-5 italic md:text-[20px] sm:text-[25px] 
-          xs:text-[18px] text-[15px] md:leading-[35px] sm:leading-[32px] xs:leading-[25px] leading-[20px] 
-          md:mt-0 mt-14`}>
-          Our autonomous driving control systems are usually divided into three main parts: 
-          environmental perception, decision planning and control part. <br /> 
-          <br className="md:hidden block" /> First, environmental perception 
+        <p className={`md:w-full italic sm:w-[85%] xs:w-[90%] w-[92%] md:mt-[40px] xs:mt-[10px] mt-[20px] 
+          md:text-[20px] sm:text-[25px] xs:text-[18px] text-[15px] md:leading-[35px] sm:leading-[32px] 
+          xs:leading-[25px] leading-[20px]`}>
+          &nbsp;&nbsp;&nbsp;&nbsp;Our autonomous driving control systems are usually divided into 
+          three main parts: environmental perception, decision planning and control part. <br /> 
+          <br className="md:hidden block" /> &nbsp;&nbsp;&nbsp;&nbsp;First, environmental perception 
           collects information around the car through a variety of sensors, including LIDAR, camera, 
           active RADAR, millimeter-wave RADAR, integrated navigation, and so on. <br /> 
           <br className="md:hidden block" />
-          We have an intelligent control algorithm that calculates the commands and routes according to 
-          the driver&apos;s intentions, speed, external environment, etc.
+          &nbsp;&nbsp;&nbsp;&nbsp;We have an intelligent control algorithm that calculates the commands 
+          and routes according to the driver&apos;s intentions, speed, external environment, etc.
         </p>
 
       </div>
