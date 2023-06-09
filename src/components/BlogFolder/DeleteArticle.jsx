@@ -1,9 +1,10 @@
-/* eslint-disable react/prop-types */
 import { deleteDoc, doc } from 'firebase/firestore';
 import { db, storage, auth } from '../../../firebaseConfig';
 import { deleteObject, ref } from 'firebase/storage';
 import { toast } from "react-toastify";
 import { useAuthState } from 'react-firebase-hooks/auth';
+import PropTypes from 'prop-types';
+import crossWhite from "../../assets/CrossWhite.png";
 
 
 
@@ -28,11 +29,19 @@ function DeleteArticle({id, imageUrl}) {
 
 
   return (
-    <div className={`${currentlyLoggedInUser && currentlyLoggedInUser.uid === blogAdminUid ? "block" : "hidden"}`}>
-      <i onClick={handleDelete} className={` fa fa-times fa-lg cursor-pointer hidden`} />
+    <div onClick={handleDelete} 
+      className={`${currentlyLoggedInUser && currentlyLoggedInUser.uid === blogAdminUid 
+          ? "block w-[15px] h-[15px] bg-red-800/40" 
+          : "hidden"}`}>
+      <img src={crossWhite} className={`w-full h-full cursor-pointer`} />
     </div>
     
   )
 }
+
+DeleteArticle.propTypes = {
+  id: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  }
 
 export default DeleteArticle

@@ -209,7 +209,7 @@ function ArticlesForm() {
                   </div>
                 </div>
 
-                <div className="md:w-[70%] sm:w-[90%] xs:w-[80%] w-[98%] flex justify-start items-center">
+                <div className="md:w-[50%] sm:w-[70%] xs:w-[80%] w-[90%] flex justify-start items-center">
                   <button 
                     onClick={handlePublish}
                     className="rounded-[5px] bg-blue-700 text-white font-semibold w-full md:h-[40px] 

@@ -19,12 +19,13 @@ function BlogsPage() {
 
   return (
     <section className={`w-full bg-primary`}>
+
       <div className={`w-full`}>
 
-        <div className={`w-full flex flex-col justify-center items-center overflow-hidden`}>
+        <div className={`w-full flex flex-col justify-center items-center overflow-hidden h-[600px]`}>
 
           <img src={heroPics} alt="hero pics"
-            className="ss:h-[1000px] h-[500px] contain opacity-10"
+            className="h-[700px] bg-cover opacity-10"
             style={{ transform: `translateY(${offsetY * 0.7}px)` }}
           />
 
@@ -50,6 +51,7 @@ function BlogsPage() {
         
 
       </div>
+
     </section>
   )
 }

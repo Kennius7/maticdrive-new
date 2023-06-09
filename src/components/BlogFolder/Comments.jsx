@@ -3,11 +3,10 @@ import { useEffect, useState } from 'react';
 import { auth, db } from '../../../firebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { v4 as uuidv4 } from 'uuid';
+import PropTypes from "prop-types";
 
 
 
-
-// eslint-disable-next-line react/prop-types
 function Comments({id}) {
     const [comments, setComments] = useState([]);
     const [comment, setComment] = useState("");
@@ -18,7 +17,7 @@ function Comments({id}) {
     useEffect(() => {
     const docRef = doc(db, "Posts", id);
     onSnapshot(docRef, (snapshot) => {setComments([...snapshot.data().comments])})
-    }, [])
+    })
     
     const handleChangeComment = (e) => {
         if (e.key === "Enter") {
@@ -105,5 +104,7 @@ function Comments({id}) {
     </div>
   )
 }
+
+Comments.propTypes = {id: PropTypes.string.isRequired}
 
 export default Comments
