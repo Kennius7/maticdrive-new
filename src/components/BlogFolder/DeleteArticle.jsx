@@ -31,7 +31,7 @@ function DeleteArticle({id, imageUrl}) {
   return (
     <div onClick={handleDelete} 
       className={`${currentlyLoggedInUser && currentlyLoggedInUser.uid === blogAdminUid 
-          ? "block w-[15px] h-[15px] bg-red-800/40" 
+          ? "block sm:w-[20px] sm:h-[20px] w-[15px] h-[15px] bg-red-800/40" 
           : "hidden"}`}>
       <img src={crossWhite} className={`w-full h-full cursor-pointer`} />
     </div>

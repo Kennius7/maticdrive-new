@@ -11,9 +11,9 @@ import heartOutline from "../../assets/HeartOutlineRedWhite.png";
 
 function LikeArticles({ id, likes }) {
     const [user] = useAuthState(auth);
-    // const [currentlyLoggedInUser] = useAuthState(auth);
     const likesRef = doc(db, "Posts", id);
     const [likeSignIn, setLikeSignIn] = useState("");
+    const [clickVerify, setClickVerify] = useState(false);
 
     const handleLike = () => {
         if (likes?.includes(user.uid)){
@@ -29,40 +29,56 @@ function LikeArticles({ id, likes }) {
     }
 
     const likeSignInFunc = () => { 
-        setInterval(()=>{
-            setLikeSignIn("You need to sign in.") 
-        }, 3000)
+        setClickVerify(true);
+        setLikeSignIn("You need to sign in.");
+        setTimeout(()=>{
+            setLikeSignIn("");
+            setClickVerify(false); 
+        }, 2000)
         
     }
 
   return (
     <div className="flex justify-end items-center w-10">
-        {!likes?.includes(user.uid) 
+        {user && !likes?.includes(user.uid) 
             ? (<img src={heartOutline} 
-                    className="cursor-pointer w-[20px] h-[20px]" 
+                    className="cursor-pointer md:w-[20px] md:h-[20px] xs:w-[18px] xs:h-[18px] w-[16px] h-[16px]" 
                     onClick={handleLike} 
                     alt="like"/>) 
                     
-            : (<img src={heartIcon} 
-                    className="cursor-pointer w-[20px] h-[20px]" 
-                    onClick={handleLike} 
-                    alt="like" />)}
+            : ""
+        }
 
-        {likes?.includes(user.uid)
-            ? (<div className="flex flex-col bg-red-400">
+        {user && likes?.includes(user.uid) 
+            ? (<img src={heartIcon} 
+                    className="cursor-pointer md:w-[20px] md:h-[20px] xs:w-[18px] xs:h-[18px] w-[16px] h-[16px]" 
+                    onClick={handleLike} 
+                    alt="like"/>) 
+                    
+            : ""
+        }
+
+        {user
+            ? ""
+
+            : (<div className="flex flex-col relative">
+
                     <img src={heartOutline} 
-                        className="cursor-pointer w-[20px] h-[20px]" 
+                        className="cursor-pointer md:w-[20px] md:h-[20px] xs:w-[18px] xs:h-[18px] 
+                        w-[16px] h-[16px]" 
                         onClick={likeSignInFunc} 
                         alt="like"/>
-                    <div className="text-white text-[14px]">{likeSignIn}</div>
-                </div>) 
-                    
-            : ""}
 
-        {/* <img src={`${!likes?.includes(user.uid) ? "../../assets/HeartIcon.png" : "../../assets/HeartOutline.png"}`} 
-            className={`cursor-pointer ${likes?.includes(user.uid) ? "text-red-600" : "text-primary"}`} 
-            onClick={handleLike}
-            alt="like"/> */}
+                    <div className={`text-white text-center absolute z-[1] md:text-[12px] xs:text-[12px] 
+                        text-[10px] top-[50%] md:py-2 xs:py-2 py-1 bg-blue-800/40 md:w-[150px] xs:w-[130px] 
+                        w-[100px] md:rounded-[6px] rounded-[4px] border border-yellow-500/30
+                        ${!clickVerify ? "hidden" : "block"}`}>
+                        {likeSignIn}
+                    </div>
+
+                </div>) 
+        }
+
     </div>
   )
 }

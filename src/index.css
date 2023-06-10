@@ -430,6 +430,12 @@ button:focus-visible {
   background-color: white;
 }
 
+.blogTextBoxEllipsis{
+  display: -webkit-box;
+  -webkit-line-clamp: 13;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
 
 /**********************************************END OF MATIC DRIVE CSS FILE******************************************/

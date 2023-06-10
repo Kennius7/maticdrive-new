@@ -12,6 +12,14 @@ function Articles() {
   const [articles, setArticles] = useState([]);
   const [user] = useAuthState(auth);
 
+  function truncateText (articleText, textMaxLength) {
+    if (articleText.length <= textMaxLength) return articleText;
+    const truncated = articleText.substring(0, textMaxLength - 3);
+    const ellipsis = "...";
+
+    return (truncated + ellipsis);
+  }
+
   useEffect(() => {
     const articleRef = collection(db, "Posts");
     const q = query(articleRef, orderBy("createdAt", "desc"));
@@ -28,7 +36,7 @@ function Articles() {
 
 
   return (
-    <div className="w-full my-10">
+    <div className="w-full">
       {
         articles.length === 0 
         ? (
@@ -49,7 +57,8 @@ function Articles() {
 
           </div>
           ) 
-        : (articles.map(({ 
+        : <div className="w-full bg-gray-gradient">
+            {(articles.map(({ 
               id, 
               title, 
               description, 
@@ -61,77 +70,93 @@ function Articles() {
               likes, 
               comments
               }) => (
-              <div className="w-full flex justify-center items-center text-white mb-20 h-[400px]" key={id}>
+              <div key={id} className="w-full text-white flex sm:flex-row flex-col sm:justify-around 
+                justify-center sm:items-center xs:items-start items-center md:pt-10 sm:pt-12 pt-8 
+                md:mb-20 sm:mb-20 xs:mb-24 mb-20 md:h-[38vw] xs:pl-3 pl-0">
 
-                <Link to={`/article/${id}`} className="w-[30%]">
-                  <div className="w-[400px] h-[400px]">
-                    <img src={imageUrl} alt="Post Picture" className="w-full h-full object-cover" />
-                  </div>
+                <div className="sm:hidden w-full flex flex-col justify-center items-start">
+                  <div className="font-bold xs:text-[23px] text-[20px]">{title}</div>
+                  <div className="font-semibold italic xs:text-[18px] text-[16px]">{description}</div>
+                </div>
+
+                <Link to={`/article/${id}`} className="md:w-[33vw] md:h-[33vw] sm:w-[42vw] sm:h-[32vw] 
+                  xs:w-[86vw] xs:h-[86vw] w-[98vw] h-[98vw]">
+                  <img src={imageUrl} alt="Post Picture" className="w-full h-full object-cover" />
                 </Link>
 
-                <div className="flex flex-col justify-center items-center w-[68%]">
+                <div className="flex flex-col justify-around items-center md:w-[65%] sm:w-[58%] 
+                  xs:w-[87.8%] w-[99%] md:h-full">
 
-                  <div className="w-full flex flex-col justify-center items-start mb-4">
-                    <div className='font-bold text-[20px]'>{title}</div>
-                    <div className="font-semibold italic text-[17px]">{description}</div>
+                  <div className="hidden w-full sm:flex flex-col justify-center items-start">
+                    <div className="font-bold md:text-[22px] sm:text-[18px] xs:text-[23px] text-[20px]">{title}</div>
+                    <div className="font-semibold italic md:text-[17px] sm:text-[16px] xs:text-[18px] text-[16px]">{description}</div>
                   </div>
 
-                  <Link to={`/article/${id}`} className="w-full h-[300px]">
-                    <div className="w-full h-full overflow-ellipsis overflow-hidden border border-yellow-500">
-                      {parse(postContent)}
+                  <Link to={`/article/${id}`} className="w-full md:h-[350px] sm:h-[240px] h-[200px]">
+                    <div className="w-full h-full text-primary overflow-hidden
+                      bg-white border border-yellow-500/40 md:text-[17px] xs:text-[15px] text-[14px]">
+                      {truncateText(parse(postContent), 200)}
                     </div>
                   </Link>
 
-                  <div className="w-full flex justify-between items-center">
+                  <div className="w-full flex justify-between items-start">
 
-                    <div className="w-[50%] flex flex-col justify-center items-start">
+                    <div className="w-[50%] flex flex-col justify-center items-start h-[35px]">
 
-                      <div className="">{createdBy && 
-                        (<div>
-                          <span className="text-[15px]">Created by:&nbsp;</span> 
-                          <span className="font-semibold">{createdBy}</span>
-                        </div>)}
+                      <div className="flex justify-center items-center h-[50%]">
+                        {createdBy && 
+                          (<div>
+                            <span className="italic md:text-[15px] sm:text-[15px] xs:text-[14px] xxs:text-[12px] 
+                              text-[10px]">Created by:&nbsp;</span> 
+                            <span className="font-semibold md:text-[15px] sm:text-[16px] xs:text-[14px] xxs:text-[12px] 
+                              text-[10px]">{createdBy}</span>
+                          </div>)}
                       </div>
 
-                      <div className="">
-                        <span className="text-[15px]">Created At:&nbsp;</span> 
-                        <span className="text-[14px] text-blue-700">{createdAt.toDate().toDateString()}</span>
+                      <div className="flex justify-center items-center h-[50%]">
+                        <span className="italic md:text-[14px] sm:text-[15px] xs:text-[14px] xxs:text-[12px] 
+                          text-[10px]">Created At:&nbsp;</span> 
+                        <span className="text-blue-700 md:text-[14px] sm:text-[15px] xs:text-[14px] xxs:text-[12px] 
+                          text-[10px]">{createdAt.toDate().toDateString()}</span>
                       </div>
 
                     </div>
 
-                    <div className="w-[30%] flex justify-end items-center">
+                    <div className="sm:w-[50%] w-[48%] flex justify-end items-center">
 
-                      <div className="flex justify-center items-center mr-4">
-                        {user && (<LikeArticles id={id} likes={likes} />)}
-                        <div className="ml-2">
-                          <div className="italic text-[15px]">
+                      <div className="flex justify-end items-center md:mr-4 sm:mr-2 xs:mr-0 mr-2">
+                        <LikeArticles id={id} likes={likes} />
+                        <div className="md:ml-2 ml-1">
+                          <div className="italic md:text-[15px] sm:text-[17px] xs:text-[15px] 
+                            xxs:text-[13px] text-[11px]">
                             {likes && likes.length > -1 && (
-                              <p><span className="text-blue-700">{ likes?.length }</span>&nbsp;like&#40;s&#41;</p>)}
+                              <p>
+                                <span className="text-blue-700">
+                                  { likes?.length }
+                                </span>&nbsp;like&#40;s&#41;
+                              </p>)}
                           </div>
                         </div>
                       </div>
 
-                      <div className="mr-4">
+                      <div className="md:w-[24%] sm:w-[48%] w-[50%] flex justify-end items-center 
+                        md:mr-4 sm:mr-2 xs:mr-3 mr-2">
                         <div>
                           {comments && comments.length > -1 && (
-                              <div>
-                                <p className="italic text-[15px]">
-                                  <Link to={`/article/${id}`}>
-                                    <span className="text-blue-700">{ comments?.length }</span> &nbsp;comment&#40;s&#41;
-                                  </Link>
-                                </p>
-                              </div>
+                            <div className="italic md:text-[15px] sm:text-[17px] xs:text-[15px] 
+                              xxs:text-[13px] text-[11px]">
+                              <Link to={`/article/${id}`}>
+                                <span className="text-blue-700">
+                                  { comments?.length }
+                                </span>&nbsp;comment&#40;s&#41;
+                              </Link>
+                            </div>
                           )}
                         </div>
                       </div>
 
-                      <div className="">
-                        <div>{user && userId === userId && 
-                          (<DeleteArticle 
-                              id={id} 
-                              imageUrl={imageUrl} />)}
-                        </div>
+                      <div>
+                        {user && userId === userId && (<DeleteArticle id={id} imageUrl={imageUrl} />)}
                       </div>
 
                     </div>
@@ -141,9 +166,8 @@ function Articles() {
                 </div>
 
               </div>
-              )
-            )
-          )
+            )))}
+        </div>
       }
     </div>
   )
