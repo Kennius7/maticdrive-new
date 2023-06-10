@@ -5,14 +5,14 @@ import DeleteArticle from './DeleteArticle';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import LikeArticles from "./LikeArticles";
 import { Link } from 'react-router-dom';
-import parse from 'html-react-parser';
+// import parse from 'html-react-parser';
 
 
 function Articles() {
   const [articles, setArticles] = useState([]);
   const [user] = useAuthState(auth);
 
-  function truncateText (articleText, textMaxLength) {
+  const truncateText = (articleText, textMaxLength) => {
     if (articleText.length <= textMaxLength) return articleText;
     const truncated = articleText.substring(0, textMaxLength - 3);
     const ellipsis = "...";
@@ -95,7 +95,7 @@ function Articles() {
                   <Link to={`/article/${id}`} className="w-full md:h-[350px] sm:h-[240px] h-[200px]">
                     <div className="w-full h-full text-primary overflow-hidden
                       bg-white border border-yellow-500/40 md:text-[17px] xs:text-[15px] text-[14px]">
-                      {truncateText(parse(postContent), 200)}
+                      {truncateText(postContent, 200)}
                     </div>
                   </Link>
 

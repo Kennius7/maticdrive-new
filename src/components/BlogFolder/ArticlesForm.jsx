@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import "../../../node_modules/react-quill/dist/quill.snow.css";
 import heroPics from "../../assets/image_5.jpg";
-// import parse from "html-react-parser";
+import parse from "html-react-parser";
 
 
 
@@ -27,7 +27,7 @@ function ArticlesForm() {
   const [progress, setProgress] = useState(0);
   const [offsetY, setOffsetY] = useState(0);
   const blogAdminUid = "gjSWaw1PnsZMfCntqQGDCSvErH93";
-  const handleScroll = () => { setOffsetY(window.pageYOffset) };
+  const handleScroll = () => { setOffsetY(window.scrollY) };
 
 
   ArticlesForm.modules = {
@@ -59,6 +59,7 @@ function ArticlesForm() {
       window.removeEventListener("scroll", handleScroll)
     }
   }, [])
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
@@ -91,7 +92,7 @@ function ArticlesForm() {
               title: formData.title,
               description: formData.description,
               imageUrl: url,
-              postContent: postContent,
+              postContent: parse(postContent),
               createdAt: Timestamp.now().toDate(),
               createdBy: user.displayName,
               userId: user.uid,
