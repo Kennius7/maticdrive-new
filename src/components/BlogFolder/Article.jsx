@@ -22,50 +22,57 @@ function Article() {
 
   return (
     <section>
-        <div className="w-full my-20">
-            {article && 
-                (<div className="w-full flex flex-col justify-center items-center">
+        <div className="w-full">
 
-                    <div className="w-[60%] text-white flex flex-col justify-center items-start mb-2">
-                        <div className="w-full font-bold text-[30px]">{ article.title }</div>
-                        <div className="w-full font-semibold italic text-[20px]">{ article.description }</div>
-                        <hr className="w-[95%] bg-white border border-white"/>
-                    </div>
+            <div className="w-full flex flex-col relative overflow-hidden 
+                md:h-[600px] sm:h-[700px] xs:h-[500px] h-[450px]">
 
-                    <div>
-                        <img src={ article.imageUrl } 
-                            alt={ article.title } 
-                            className="w-[60vw] h-[50vw] bg-blue-400 object-cover" />
-                    </div>
+                <img src={article.imageUrl} alt="hero pics"
+                    className="w-full md:h-[700px] sm:h-[900px] xs:h-[800px] h-[500px] object-cover opacity-30"/>
 
-                    <div className="w-[60%] text-primary
-                      bg-white border border-yellow-500/40 md:text-[17px] xs:text-[15px] text-[14px]">
-                      {parse(article.postContent)}
-                    </div>
+                <div className="w-full text-white flex flex-col absolute z-[1 top-[65%] left-[10%]">
+                    <div className="w-full text-start font-bold text-[30px]">{ article.title }</div>
+                    <div className="w-full text-start font-semibold italic text-[20px]">{ article.description }</div>
+                    <hr className="w-[60%] bg-blue-500 border border-bg-dimWhite mt-4"/>
+                </div>
+            </div>
 
-                    <div className="w-[60%] text-white flex justify-between items-center mx-2 mt-2">
+            <div className="">
 
-                        <div className="w-[30%] flex justify-between items-center mb-20">
-                            <div className="flex flex-col justify-start items-center text-white">
-                                <div className='text-[13px]'>Author: { article.createdBy }</div>
-                                <div className='text-[12px]'>Posted on: { article.createdAt.toDate().toDateString() }</div>
-                            </div>
-                            
-                            <div className="w-[30%] flex">
-                                { user && (<LikeArticles id={id} likes={article.likes} />) }
-                                <div>
-                                    <div className="text-blue-400">{ article.likes.length }</div>
-                                    &nbsp;Likes
+                {article && (
+                    <div className="w-full flex flex-col justify-center items-center">
+
+                        <div className="w-[60%] text-primary
+                        bg-white border border-yellow-500/40 md:text-[17px] xs:text-[15px] text-[14px]">
+                        {parse(article.postContent)}
+                        </div>
+
+                        <div className="w-[60%] text-white flex justify-between items-center mx-2 mt-2">
+
+                            <div className="w-[30%] flex justify-between items-center mb-20">
+                                <div className="flex flex-col justify-start items-center text-white">
+                                    <div className='text-[13px]'>Author: { article.createdBy }</div>
+                                    <div className='text-[12px]'>Posted on: { article.createdAt.toDate().toDateString() }</div>
+                                </div>
+                                
+                                <div className="w-[30%] flex">
+                                    { user && (<LikeArticles id={id} likes={article.likes} />) }
+                                    <div>
+                                        <div className="text-blue-400">{ article.likes.length }</div>
+                                        &nbsp;Likes
+                                    </div>
                                 </div>
                             </div>
+                            
+                            <Comments id={ article.id } />
+
                         </div>
-                        
-                        <Comments id={ article.id } />
 
-                    </div>
+                    </div>)
+                }
 
-                </div>)
-            }
+            </div>
+
         </div>
 
     </section>
