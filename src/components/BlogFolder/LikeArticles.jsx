@@ -83,9 +83,10 @@ function LikeArticles({ id, likes }) {
   )
 }
 
+
 LikeArticles.propTypes = {
     id: PropTypes.string.isRequired,
-    likes: PropTypes.number.isRequired,
+    likes: PropTypes.array.isRequired,
     }
 
 export default LikeArticles

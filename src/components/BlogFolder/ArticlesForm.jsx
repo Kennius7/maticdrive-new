@@ -9,7 +9,8 @@ import { Link } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import "../../../node_modules/react-quill/dist/quill.snow.css";
 import heroPics from "../../assets/image_5.jpg";
-import parse from "html-react-parser";
+// import parse from "html-react-parser";
+// import { Parser } from 'html-to-react';
 
 
 
@@ -23,11 +24,13 @@ function ArticlesForm() {
     imageUrl: "",
     createdAt: Timestamp.now().toDate(),
   });
-  const [postContent, setPostContent] = useState("");
+  const [postContent, setPostContent] = useState([]);
   const [progress, setProgress] = useState(0);
   const [offsetY, setOffsetY] = useState(0);
   const blogAdminUid = "gjSWaw1PnsZMfCntqQGDCSvErH93";
   const handleScroll = () => { setOffsetY(window.scrollY) };
+  // const htmlParser = new Parser();
+  // const parsedTextContent = htmlParser.parse(postContent);
 
 
   ArticlesForm.modules = {
@@ -59,7 +62,7 @@ function ArticlesForm() {
       window.removeEventListener("scroll", handleScroll)
     }
   }, [])
-  
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
@@ -92,7 +95,7 @@ function ArticlesForm() {
               title: formData.title,
               description: formData.description,
               imageUrl: url,
-              postContent: parse(postContent),
+              postContent: postContent,
               createdAt: Timestamp.now().toDate(),
               createdBy: user.displayName,
               userId: user.uid,

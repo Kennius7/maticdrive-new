@@ -5,20 +5,23 @@ import DeleteArticle from './DeleteArticle';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import LikeArticles from "./LikeArticles";
 import { Link } from 'react-router-dom';
-// import parse from 'html-react-parser';
+import parse from 'html-react-parser';
+// import { Parser } from 'html-to-react';
 
 
 function Articles() {
   const [articles, setArticles] = useState([]);
   const [user] = useAuthState(auth);
+  // const htmlParser = new Parser();
+  // const articleTextObj = { __html: postContent };
 
-  const truncateText = (articleText, textMaxLength) => {
-    if (articleText.length <= textMaxLength) return articleText;
-    const truncated = articleText.substring(0, textMaxLength - 3);
-    const ellipsis = "...";
-
-    return (truncated + ellipsis);
-  }
+  // const truncateText = (articleText, textMaxLength) => {
+  //   if (articleText.length <= textMaxLength) return articleText;
+  //   const truncated = articleText.substring(0, textMaxLength - 12);
+  //   const ellipsis = "  ...See more.";
+  //   console.log(truncated + ellipsis);
+  //   return (truncated + ellipsis);
+  // }
 
   useEffect(() => {
     const articleRef = collection(db, "Posts");
@@ -57,7 +60,7 @@ function Articles() {
 
           </div>
           ) 
-        : <div className="w-full bg-gray-gradient">
+        : <div className="w-full bg-article-black">
             {(articles.map(({ 
               id, 
               title, 
@@ -92,10 +95,14 @@ function Articles() {
                     <div className="font-semibold italic md:text-[17px] sm:text-[16px] xs:text-[18px] text-[16px]">{description}</div>
                   </div>
 
-                  <Link to={`/article/${id}`} className="w-full md:h-[350px] sm:h-[240px] h-[200px]">
-                    <div className="w-full h-full text-primary overflow-hidden
-                      bg-white border border-yellow-500/40 md:text-[17px] xs:text-[15px] text-[14px]">
-                      {truncateText(postContent, 200)}
+                  <Link to={`/article/${id}`} className="relative overflow-hidden w-full md:h-[350px] sm:h-[240px] h-[200px]">
+                    <div className="w-full h-full text-primary overflow-hidden bg-white pl-1 pt-2 md:text-[17px] 
+                      xs:text-[15px] text-[14px]">
+                      {parse(postContent)}
+                    </div>
+                    <div className="text-center text-white italic seeMoreTextShadow bg-article-black-gradient 
+                      absolute z-[2] sm:text-[20px] text-[16px] bottom-[-1%] w-full h-[50px] sm:pt-4 pt-5 ">
+                      See more...
                     </div>
                   </Link>
 
