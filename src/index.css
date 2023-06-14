@@ -449,6 +449,12 @@ button:focus-visible {
   text-shadow: 0 0 10px rgb(22, 8, 145);
 }
 
+.contactUs-diagonal-bg{
+  background: linear-gradient(70deg, #00040f, 100px, white, 100px);
+}
+
+
+
 
 
 

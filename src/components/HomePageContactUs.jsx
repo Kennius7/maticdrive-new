@@ -2,8 +2,8 @@
 
 function HomePageContactUs() {
   return (
-    <div className="">
-        <div className="text-white text-center my-40">
+    <div className="w-full h-[300px] flex justify-center items-center contactUs-diagonal-bg">
+        <div className="text-white text-center">
             HomePageContactUs
         </div>
     </div>
