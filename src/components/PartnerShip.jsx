@@ -18,15 +18,16 @@ function PartnerShip() {
         <section className="w-full flex flex-col justify-around items-center overflow-hidden relative 
             md:h-[900px] sm:h-[600px] xs:h-[500px] h-[400px] bg-indigo-900/20">
 
-            <div className="w-full md:h-[1100px] sm:h-[1000px] xs:h-[700px] h-[600px] md:-mt-[2200px] sm:-mt-[2450px] xs:-mt-[1750px] -mt-[1400px]">
+            <div className="w-full absolute z-[1] md:bottom-[150%] sm:bottom-[200%] xs:bottom-[210%] 
+                bottom-[250%] md:h-[1100px] sm:h-[900px] xs:h-[700px] h-[600px]">
 
                 <img src={heroPics} alt="hero pics"
                 className="w-full h-full object-cover opacity-10"
-                style={{ transform: `translateY(${offsetY * 0.5}px)` }} />
+                style={{ transform: `translateY(${offsetY * 0.4}px)` }} />
 
             </div>
 
-            <div className="w-full flex flex-col justify-center items-center absolute z-[1] 
+            <div className="w-full flex flex-col justify-center items-center absolute z-[2] 
                 md:top-[5%] top-[10%] p-2">
                 
                 <div className="text-white flex flex-col justify-center items-center md:w-[80%] 

@@ -24,27 +24,27 @@ function Article() {
     <section>
         <div className="w-full">
 
-            <div className="w-full flex flex-col relative overflow-hidden 
+            <div className="w-full flex flex-col justify-center items-center relative overflow-hidden 
                 md:h-[600px] sm:h-[700px] xs:h-[500px] h-[450px]">
 
                 <img src={article.imageUrl} alt="hero pics"
                     className="w-full md:h-[700px] sm:h-[900px] xs:h-[800px] h-[500px] object-cover opacity-30"/>
 
-                <div className="w-full text-white flex flex-col absolute z-[1 top-[65%] left-[10%]">
+                <div className="w-[70%] text-white flex flex-col absolute z-[1 top-[65%] left-[10%]">
                     <div className="w-full text-start font-bold text-[30px]">{ article.title }</div>
                     <div className="w-full text-start font-semibold italic text-[20px]">{ article.description }</div>
                     <hr className="w-[60%] bg-blue-500 border border-bg-dimWhite mt-4"/>
                 </div>
             </div>
 
-            <div className="">
+            <div className="w-full bg-white">
 
                 {article && (
                     <div className="w-full flex flex-col justify-center items-center">
 
-                        <div className="w-[60%] text-primary
-                        bg-white border border-yellow-500/40 md:text-[17px] xs:text-[15px] text-[14px]">
-                        {parse(article.postContent)}
+                        <div className="w-[70%] text-primary bg-white border-2 border-yellow-500/40 
+                            rounded-[5px] md:text-[17px] xs:text-[15px] text-[14px] p-4">
+                            {parse(article.postContent)}
                         </div>
 
                         <div className="w-[60%] text-white flex justify-between items-center mx-2 mt-2">
