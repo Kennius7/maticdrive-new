@@ -450,8 +450,26 @@ button:focus-visible {
 }
 
 .contactUs-diagonal-bg{
-  background: linear-gradient(70deg, #00040f, 100px, white, 100px);
+  background: linear-gradient(70.00deg, #00040f, 100ch, white);
 }
+
+.contactUs-diagonal-bg2{
+  width: fit-content;
+}
+
+.contactUs-diagonal-bg2::after{
+  content: "";
+}
+
+.image-diagonal-bg{
+  width: fit-content;
+}
+
+.image-diagonal-bg::after{
+  content: "";
+transform: skewX(0);
+}
+
 
 
 

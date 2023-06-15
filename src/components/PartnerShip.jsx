@@ -4,7 +4,7 @@ import heroPics from "../assets/about-a.jpeg";
 
 function PartnerShip() {
     const [offsetY, setOffsetY] = useState(0);
-    const handleScroll = () => { setOffsetY(window.pageYOffset) };
+    const handleScroll = () => { setOffsetY(window.scrollY) };
   
     useEffect(() => {
       window.addEventListener("scroll", handleScroll);
