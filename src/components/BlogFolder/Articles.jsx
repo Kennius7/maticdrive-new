@@ -6,22 +6,12 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import LikeArticles from "./LikeArticles";
 import { Link } from 'react-router-dom';
 import parse from 'html-react-parser';
-// import { Parser } from 'html-to-react';
+
 
 
 function Articles() {
   const [articles, setArticles] = useState([]);
   const [user] = useAuthState(auth);
-  // const htmlParser = new Parser();
-  // const articleTextObj = { __html: postContent };
-
-  // const truncateText = (articleText, textMaxLength) => {
-  //   if (articleText.length <= textMaxLength) return articleText;
-  //   const truncated = articleText.substring(0, textMaxLength - 12);
-  //   const ellipsis = "  ...See more.";
-  //   console.log(truncated + ellipsis);
-  //   return (truncated + ellipsis);
-  // }
 
   useEffect(() => {
     const articleRef = collection(db, "Posts");

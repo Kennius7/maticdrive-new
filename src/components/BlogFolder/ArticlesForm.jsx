@@ -29,8 +29,7 @@ function ArticlesForm() {
   const [offsetY, setOffsetY] = useState(0);
   const blogAdminUid = "gjSWaw1PnsZMfCntqQGDCSvErH93";
   const handleScroll = () => { setOffsetY(window.scrollY) };
-  // const htmlParser = new Parser();
-  // const parsedTextContent = htmlParser.parse(postContent);
+
 
 
   ArticlesForm.modules = {
