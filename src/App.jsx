@@ -11,13 +11,50 @@ import Register from "./components/AuthFolder/Register";
 import SignInPage from './pages/SignInPage';
 import ArticlesForm from "./components/BlogFolder/ArticlesForm";
 import Article from "./components/BlogFolder/Article";
+import { NavContext } from "../src/context/NavContext";
+import ScrollToTop from './ScrollToTop';
 
 
 
 
 
 function App() {
+
+  const navLinks = [
+    {
+        id: "/",
+        title: "Home",
+    },
+    {
+        id: "/aboutus",
+        title: "About Us",
+    },
+    {
+        id: "/team",
+        title: "Our Team",
+    },
+    {
+        id: "/blog",
+        title: "Blogs",
+    },
+    {
+        id: "/createarticle",
+        title: "Blog Admin",
+    },
+    {
+        id: "/contactus",
+        title: "Contact Us",
+    },
+    {
+        id: "/signin",
+        title: "Sign In",
+    },
+];
+  const [active, setActive] = useState("Home");
+  const [toggle, setToggle] = useState(false);
+  const blogAdminUid = "gjSWaw1PnsZMfCntqQGDCSvErH93";
   const [scrolled, setScrolled] = useState(false);
+  
 
   useEffect(() => {
     const onScroll = () => {
@@ -34,33 +71,37 @@ function App() {
   }, [])
 
   return (
-    <BrowserRouter>
-      <div className={`flex flex-col bg-primary relative`}>
+    <NavContext.Provider value={{ navLinks, active, setActive, toggle, setToggle, blogAdminUid }}>
+      <BrowserRouter>
+        <div className={`flex flex-col bg-primary relative`}>
 
-        <div className={`w-full ${scrolled 
-        ? "bg-primary fixed z-[3] duration-1000" 
-        : "bg-transparent absolute z-[3] duration-1000"}`}>
-          <Navbar />
+          <div className={`w-full ${scrolled 
+          ? "bg-primary fixed z-[3] duration-1000" 
+          : "bg-transparent absolute z-[3] duration-1000"}`}>
+            <Navbar />
+          </div>
+
+          <ScrollToTop/>
+
+          <Routes>
+            <Route path="/" element={<Homepage />} exact />
+            <Route path="/team" element={<TeamPage />} exact />
+            <Route path="/aboutus" element={<AboutUsPage />} exact />
+            <Route path="/contactus" element={<ContactUsPage />} exact />
+            <Route path="/blog" element={<BlogsPage />} exact />
+            <Route path="/signup" element={<Register />} exact />
+            <Route path="/signin" element={<SignInPage />} exact />
+            <Route path="/createarticle" element={<ArticlesForm />} exact />
+            <Route path="/article/:id" element={<Article />} exact />
+          </Routes>
+
+          <div className="w-full">
+            <Footer />
+          </div>
+
         </div>
-
-        <Routes>
-          <Route path="/" element={<Homepage />} exact />
-          <Route path="/team" element={<TeamPage />} exact />
-          <Route path="/aboutus" element={<AboutUsPage />} exact />
-          <Route path="/contactus" element={<ContactUsPage />} exact />
-          <Route path="/blog" element={<BlogsPage />} exact />
-          <Route path="/signup" element={<Register />} exact />
-          <Route path="/signin" element={<SignInPage />} exact />
-          <Route path="/createarticle" element={<ArticlesForm />} exact />
-          <Route path="/article/:id" element={<Article />} exact />
-        </Routes>
-
-        <div className="w-full">
-          <Footer />
-        </div>
-
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </NavContext.Provider>
   )
 }
 

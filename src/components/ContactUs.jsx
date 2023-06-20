@@ -190,10 +190,10 @@ const ContactUs = () => {
                 </div>
                 <div className="flex flex-col justify-center items-start">
                   <div className="text-[16px] text-gray-400">PHONE No.</div>
-                  <a href="https://wa.me/+2348055549979" 
+                  <a href="https://wa.me/+2349055570782" 
                     target="_blank" 
                     rel="noreferrer"
-                    className="font-bold">+2348055549979
+                    className="font-bold">+2349055570782
                   </a>
                 </div>
               </div>
@@ -205,7 +205,7 @@ const ContactUs = () => {
                 </div>
                 <div className="flex flex-col justify-center items-start">
                   <div className="text-[16px] text-gray-400">Email Address</div>
-                  <a href=" mailto:admin@maticdrive.com" 
+                  <a href="mailto:admin@maticdrive.com" 
                     target="_blank" 
                     rel="noreferrer"
                     className="font-bold">admin@maticdrive.com
@@ -220,10 +220,10 @@ const ContactUs = () => {
                 </div>
                 <div className="flex flex-col justify-center items-start">
                   <div className="text-[16px] text-gray-400">Whatsapp No.</div>
-                  <a href="https://wa.me/+2348055549979" 
+                  <a href="https://wa.me/+2349055570782" 
                     target="_blank" 
                     rel="noreferrer"
-                    className="font-bold">+2348055549979
+                    className="font-bold">+2349055570782
                   </a>
                 </div>
               </div>

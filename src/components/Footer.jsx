@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import facebookIcon from "../assets/Mfacebook.svg";
 import twitterIcon from "../assets/Mtwitter-squared.png";
 import instagramIcon from "../assets/Minstagram.svg";
@@ -6,10 +7,15 @@ import linkedInIcon from "../assets/Mlinkedin.svg";
 // import whatsappIcon from "../assets/Shield.svg";
 import youtubeIcon from "../assets/Myoutube.svg";
 import phoneIcon from "../assets/Discount.svg";
+import { NavContext } from "../context/NavContext";
 
 
 
 function Footer() {
+
+    const Navigate = useNavigate();
+    const { navLinks, setActive } = useContext(NavContext);
+
     return (
         <footer className="w-full flex justify-center items-center bg-gray-900">
 
@@ -38,14 +44,26 @@ function Footer() {
                         <div className="flex flex-col max-w-[140px] xs:max-w-[180px] sm:max-w-[300px] 
                             md:max-w-[400px]">
                             <h2 className={`text-gray-400 font-bold text-[16px] xs:text-[17px] 
-                            sm:text-[25px] md:text-[16px] mb-2 xs:mb-2 sm:mb-4`}>Information</h2>
+                                sm:text-[25px] md:text-[16px] mb-2 xs:mb-2 sm:mb-4`}>Information</h2>
                             <ul className="list-unstyled flex flex-col text-gray-400 sm:text-[20px] 
-                            text-[14px] xs:text-[13px] md:text-[15px]">
-                                <li className="mb-0 xs:mb-1 sm:mb-1 md:mb-1"><Link to="/aboutus">About Us</Link></li>
-                                <li className="mb-0 xs:mb-1 sm:mb-1 md:mb-1"><Link to="/features">Our Services</Link></li>
-                                <li className="mb-0 xs:mb-1 sm:mb-1 md:mb-1 xs:tracking-normal tracking-[-1px]"><Link to="/legal" >Privacy &amp; Cookies Policy</Link></li>
-                                <li className="mb-0 xs:mb-1 sm:mb-1 md:mb-1"><Link to="/blog">Our Blog</Link></li>
-                                <li className="mb-0 xs:mb-1 sm:mb-1 md:mb-1"><Link to="/contactus">Contact Us</Link></li>
+                                text-[14px] xs:text-[13px] md:text-[15px]">
+
+                                <li onClick={() => { setActive(navLinks[1].title); Navigate(navLinks[1].id) }} 
+                                    className="cursor-pointer mb-0 xs:mb-1 sm:mb-1 md:mb-1">About Us</li>
+
+                                <li onClick={() => { setActive(navLinks[2].title); Navigate(navLinks[2].id) }} 
+                                    className="cursor-pointer mb-0 xs:mb-1 sm:mb-1 md:mb-1">Our Team</li>
+
+                                <li className="cursor-pointer mb-0 xs:mb-1 sm:mb-1 md:mb-1 xs:tracking-normal 
+                                    tracking-[-1px]">
+                                    Privacy &amp; Cookies Policy
+                                </li>
+
+                                <li onClick={() => { setActive(navLinks[3].title); Navigate(navLinks[3].id) }} 
+                                    className="cursor-pointer mb-0 xs:mb-1 sm:mb-1 md:mb-1">Our Blog</li>
+
+                                <li onClick={() => { setActive(navLinks[5].title); Navigate(navLinks[5].id) }} 
+                                    className="cursor-pointer mb-0 xs:mb-1 sm:mb-1 md:mb-1">Contact Us</li>
                             </ul>
                         </div>
 
@@ -56,19 +74,25 @@ function Footer() {
 
                             <ul className="w-full text-gray-400 flex flex-1 flex-col justify-start">
                                 <li className="sm:mb-2 ss:mb-4">
-                                    <a href="#" className="sm:mb-0 mb-2 flex flex-row justify-start items-center">
+                                    <a href="https://wa.me/+2349055570782" 
+                                        target="_blank" 
+                                        rel="noreferrer"
+                                        className="sm:mb-0 mb-2 flex flex-row justify-start items-center">
                                         <img src={phoneIcon} alt="phone" className="w-[15px] h-[15px] 
-                                        ss:w-[20px] ss:h-[20px]"/>
+                                            ss:w-[20px] ss:h-[20px]"/>
                                         <span className="md:text-[15px] sm:text-[20px] xs:text-[13px] 
-                                        text-[14px]">+2349055570782</span>
+                                            text-[14px]">+2349055570782</span>
                                     </a>
                                 </li>
                                 <li className="sm:mb-2 ss:mb-2">
-                                    <a href="#" className="flex flex-row justify-start items-center">
+                                    <a href="mailto:admin@maticdrive.com" 
+                                        className="flex flex-row justify-start items-center">
                                         <img src={phoneIcon} alt="email" className="w-[15px] 
-                                        h-[15px] ss:w-[20px] ss:h-[20px]"/>
+                                            h-[15px] ss:w-[20px] ss:h-[20px]"/>
                                         <span className={`md:text-[15px] sm:text-[20px] xs:text-[13px] 
-                                        text-[15px] tracking-[-1px] xs:tracking-[0px]`}>admin@maticdrive.com</span>
+                                            text-[15px] tracking-[-1px] xs:tracking-[0px]`}>
+                                            admin@maticdrive.com
+                                        </span>
                                     </a>
                                 </li>
 

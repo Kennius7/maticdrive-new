@@ -103,7 +103,7 @@ const TeamPlayers = () => {
           sm:text-[25px] xs:text-[18px] text-[16px] sm:leading-[40px] xs:leading-[30px] leading-[22px]`}>
             An agile team experienced with machine learning and neural data AI systems production,
             development, deployment etc., we are poised and well equipped to capitalize on the nascent 
-            African market for autonoumous vehicle technology.
+            African market for autonomous vehicle technology.
           </p>
 
         </div>

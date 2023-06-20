@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import heroPics from "../assets/about-a.jpeg";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { NavContext } from "../context/NavContext";
 
 
 
@@ -9,6 +10,8 @@ function HomePageContactUs() {
 
     const [offsetY, setOffsetY] = useState(0);
     const handleScroll = () => { setOffsetY(window.scrollY) };
+    const Navigate = useNavigate();
+    const { navLinks, setActive } = useContext(NavContext);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -56,13 +59,12 @@ function HomePageContactUs() {
 
             <div className="w-[50%] md:p-4 p-2 flex justify-end items-center md:mt-0 mt-6">
 
-                <Link to="/contactus">
-                    <button className="text-gray-800 md:text-center xs:text-center 
-                        text-end font-bold italic rounded-[5px] bg-blue-gradient sm:text-[18px] text-[16px] 
-                        sm:w-[200px] sm:h-[50px] w-[150px] h-[45px] md:pr-0 xs:pr-0 pr-2">
-                        CONTACT US
-                    </button>
-                </Link>
+                <button onClick={() => { setActive(navLinks[5].title); Navigate("/contactus") }} 
+                    className="text-gray-800 md:text-center xs:text-center 
+                    text-end font-bold italic rounded-[5px] bg-blue-gradient sm:text-[18px] text-[16px] 
+                    sm:w-[200px] sm:h-[50px] w-[150px] h-[45px] md:pr-0 xs:pr-0 pr-2">
+                    CONTACT US
+                </button>
 
             </div>
 

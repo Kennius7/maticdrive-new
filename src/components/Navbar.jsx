@@ -1,52 +1,21 @@
-/* eslint-disable react/prop-types */
-import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from 'react';
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebaseConfig";
 import { signOut } from "firebase/auth";
 import logo from "../assets/MaticIconSmall1.png";
 import menu from "../assets/menu.svg";
 import close from "../assets/close.svg";
+import { NavContext } from '../context/NavContext';
 
 
 function Navbar() {
-    const navLinks = [
-        {
-            id: "/",
-            title: "Home",
-        },
-        {
-            id: "/aboutus",
-            title: "About Us",
-        },
-        {
-            id: "/team",
-            title: "Our Team",
-        },
-        {
-            id: "/blog",
-            title: "Blogs",
-        },
-        {
-            id: "/createarticle",
-            title: "Blog Admin",
-        },
-        {
-            id: "/contactus",
-            title: "Contact Us",
-        },
-        {
-            id: "/signin",
-            title: "Sign In",
-        },
-    ];
-    const [active, setActive] = useState("Home");
-    const [toggle, setToggle] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [user] = useAuthState(auth);
     const [currentlyLoggedInUser] = useAuthState(auth);
-    const blogAdminUid = "gjSWaw1PnsZMfCntqQGDCSvErH93";
-
+    const { navLinks, active, setActive, toggle, setToggle, blogAdminUid } = useContext(NavContext);
+    const location = useLocation();
+    const Navigate = useNavigate();
 
     useEffect(() => {
         const onScroll = () => {
@@ -58,7 +27,7 @@ function Navbar() {
         }
 
         window.addEventListener("scroll", onScroll);
-        
+        setActive("");
 
         return () => window.removeEventListener("scroll", onScroll);
     }, [])
@@ -104,10 +73,10 @@ function Navbar() {
                                 ${user && nav.title === "Sign In" ? "hidden" : "block"}
                                 ${!user && nav.title === "Blog Admin" ? "hidden" : "block"}
                                 ${currentlyLoggedInUser && currentlyLoggedInUser.uid !== blogAdminUid && nav.title == "Blog Admin"
-                                ? "hidden" : "block"}`}
-                                onClick={() => setActive(nav.title)}
-                            >
-                                <Link to={`${nav.id}`}>{ nav.title }</Link>
+                                ? "hidden" : "block"}
+                                ${location.pathname === nav.id ? "text-white" : "text-gray-500" }`}
+                                onClick={() => {setActive(nav.title); Navigate(nav.id)}}>
+                                { nav.title }
                             </li>
                         ))}
                         <button
@@ -138,27 +107,24 @@ function Navbar() {
 
                     <div
                         className={`${!toggle ? "hidden" : "flex"} 
-                        p-4 xs:p-4 sm:p-10 bg-black-gradient absolute top-14 xs:top-16 sm:top-24 right-0 
-                        w-[120px] xs:w-[150px] sm:w-[260px] mr-2 sm:mr-4 rounded-[10px] sm:rounded-[15px] sidebar 
-                        flex-col opacity-90 z-20`}
+                        p-4 xs:p-4 sm:p-8 bg-black-gradient absolute top-14 xs:top-16 sm:top-24 right-0 
+                        w-[120px] xs:w-[150px] sm:w-[200px] mr-2 sm:mr-4 rounded-[10px] sm:rounded-[13px] 
+                        sidebar flex-col opacity-90 z-20`}
                     >
                         <ul className="list-none flex justify-center flex-col mb-1 xs:mb-1 sm:mb-2">
                             {navLinks.map((nav) => (
                                 <li
                                     key={nav.id}
                                     className={`font-poppins font-semibold cursor-pointer mb-2 xs:mb-3 
-                                    sm:mb-[20px] text-[15px] xs:text-[17px] sm:text-[30px] 
+                                    sm:mb-[13px] text-[15px] xs:text-[17px] sm:text-[22px] 
                                     ${active === nav.title ? "text-white" : "text-dimWhite"} 
                                     ${user && nav.title === "Sign In" ? "hidden" : "block"}
                                     ${!user && nav.title === "Blog Admin" ? "hidden" : "block"}
                                     ${currentlyLoggedInUser && currentlyLoggedInUser.uid !== blogAdminUid && nav.title === "Blog Admin"
-                                    ? "hidden" : "block"}`}
-                                    onClick={() => {
-                                        setActive(nav.title);
-                                        setToggle(!toggle);
-                                    }}
-                                >
-                                    <Link to={`${nav.id}`}>{nav.title}</Link>
+                                    ? "hidden" : "block"}
+                                    ${location.pathname === nav.id ? "text-white" : "text-gray-500" }`}
+                                    onClick={() => { setActive(nav.title); setToggle(!toggle); Navigate(nav.id) }}>
+                                    {nav.title}
                                 </li>
                             ))}
                         </ul>
