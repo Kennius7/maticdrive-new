@@ -19,9 +19,9 @@ function Article() {
       
       onSnapshot(docRef, (snapshot) => { 
         setArticle({ ...snapshot.data(), id: snapshot.id }); 
-        console.log(...snapshot.data()); 
+        console.log({...snapshot.data()}); 
         })
-    })
+    }, [id])
 
 
   return (
@@ -36,12 +36,17 @@ function Article() {
                         md:h-[600px] sm:h-[700px] xs:h-[500px] h-[450px]">
 
                         <img src={article.imageUrl} alt="hero pics"
-                            className="w-full md:h-[700px] sm:h-[900px] xs:h-[800px] h-[500px] object-cover opacity-30"/>
+                            className="object-cover opacity-30 w-full md:h-[700px] sm:h-[900px] 
+                                xs:h-[800px] h-[500px]"/>
 
                         <div className="w-[70%] text-white flex flex-col absolute z-[1 top-[65%] left-[10%]">
-                            <div className="w-full text-start font-bold text-[30px]">{ article.title }</div>
-                            <div className="w-full text-start font-semibold italic text-[20px]">{ article.description }</div>
-                            <hr className="w-[60%] bg-blue-500 border border-bg-dimWhite mt-4"/>
+                            <div className="w-full text-start font-bold text-[30px]">
+                                { article.title }
+                            </div>
+                            <div className="w-full text-start font-semibold italic text-[20px]">
+                                { article.description }
+                            </div>
+                            <hr className="md:w-[60%] w-[90%] bg-blue-500 border border-bg-dimWhite mt-4"/>
                         </div>
                         
                     </div>
@@ -49,34 +54,56 @@ function Article() {
                 </div>
             )}
 
-            <div className="w-full bg-white">
+            <div className="w-full">
 
                 {article && (
-                    <div className="w-full flex flex-col justify-center items-center">
+                    <div className="w-full flex flex-col justify-center items-center bg-primary">
 
-                        <div className="w-[70%] text-primary bg-white border-2 border-yellow-500/40 
-                            rounded-[5px] md:text-[17px] xs:text-[15px] text-[14px] p-4">
+                        <div className="md:w-[80%] w-[95%] text-primary bg-white border-2 border-gray-400/70 
+                            rounded-[5px] md:text-[17px] xs:text-[15px] text-[14px] p-4 pt-6">
                             {parse(article.postContent)}
                         </div>
 
-                        <div className="w-[60%] text-white flex justify-between items-center mx-2 mt-2">
+                        <div className="bg-gray-200 flex flex-col justify-center items-center 
+                            rounded-[5px] md:w-[80%] w-[90%] mx-2 my-2">
 
-                            <div className="w-[30%] flex justify-between items-center mb-20">
-                                <div className="flex flex-col justify-start items-center text-white">
-                                    <div className='text-[13px]'>Author: { article.createdBy }</div>
-                                    <div className='text-[12px]'>Posted on: { article.createdAt.toDate().toDateString() }</div>
+                            <div className="md:w-[95%] flex justify-between items-center pt-2">
+                                <div className="flex justify-start items-center text-primary md:pl-2">
+                                    <div className="text-[16px] italic">
+                                        Author:&nbsp; 
+                                            <span className="text-blue-700">
+                                                { article.createdBy }
+                                            </span>
+                                    </div>
+                                    <div className="md:block hidden">&nbsp;/&nbsp;</div>
+                                    <div className="text-[16px] italic">
+                                        Posted on:&nbsp; 
+                                        <span className="text-blue-700">
+                                            { article.createdAt.toDate().toDateString() }
+                                        </span>
+                                    </div>
                                 </div>
                                 
-                                <div className="w-[30%] flex">
+                                <div className="flex justify-around items-center">
                                     { user && (<LikeArticles id={id} likes={article.likes} />) }
-                                    <div>
-                                        <div className="text-blue-400">{ article.likes.length }</div>
-                                        &nbsp;Likes
+                                    <div className="flex justify-center items-center ml-2">
+                                        <div className="text-blue-700 italic text-[18px]">
+                                            { article.likes.length }
+                                        </div>
+                                        <div className="text-primary italic text-[16px]">&nbsp;Likes</div>
+                                    </div>
+                                    <div className="text-[18px] flex justify-center items-center ml-2">
+                                        <div className="text-blue-700 italic text-[18px]">
+                                            { article.comments.length }
+                                        </div>
+                                        <div className="text-primary italic text-[16px]">&nbsp;Comments</div>
                                     </div>
                                 </div>
                             </div>
                             
-                            <Comments id={ article.id } />
+                            <div className="w-[95%] my-8">
+                                <Comments id={ article.id } />
+                            </div>
 
                         </div>
 

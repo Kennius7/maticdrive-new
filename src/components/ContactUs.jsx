@@ -3,6 +3,9 @@ import emailjs from "@emailjs/browser";
 import heroPics from "../assets/handshake-worked.jpeg";
 import PageTitleContact from "./PageTitleContact";
 import whatsappIcons from "../assets/whatsapp-icon1.png";
+import phoneIcons from "../assets/phone-icons.png";
+import emailIcons from "../assets/email-icons.png";
+
 // import contactUsPics from "../assets/about-a.jpeg";
 
 const ContactUs = () => {
@@ -186,10 +189,10 @@ const ContactUs = () => {
               <div className="font-poppins text-primary bg-transparent flex justify-start items-center
                 border-[2px] border-gray-300 rounded-[4px] w-[90%] h-[30%] text-[18px] p-2">
                 <div className="md:m-3 m-2 md:pb-0 pb-2">
-                  <img src={whatsappIcons} alt="whatsapp icons" className="md:w-8 md:h-8 w-7 h-7"/>
+                  <img src={phoneIcons} alt="whatsapp icons" className="md:w-8 md:h-8 w-7 h-7"/>
                 </div>
                 <div className="flex flex-col justify-center items-start">
-                  <div className="text-[16px] text-gray-400">PHONE No.</div>
+                  <div className="text-[16px] text-gray-500">PHONE No.</div>
                   <a href="https://wa.me/+2349055570782" 
                     target="_blank" 
                     rel="noreferrer"
@@ -201,10 +204,10 @@ const ContactUs = () => {
               <div className="font-poppins text-primary bg-transparent flex justify-start items-center
                 border-[2px] border-gray-300 rounded-[4px] w-[90%] h-[30%] text-[18px] p-2">
                 <div className="md:m-3 m-2 md:pb-0 pb-2">
-                  <img src={whatsappIcons} alt="whatsapp icons" className="md:w-8 md:h-8 w-7 h-7"/>
+                  <img src={emailIcons} alt="whatsapp icons" className="md:w-8 md:h-8 w-7 h-7"/>
                 </div>
                 <div className="flex flex-col justify-center items-start">
-                  <div className="text-[16px] text-gray-400">Email Address</div>
+                  <div className="text-[16px] text-gray-500">Email Address</div>
                   <a href="mailto:admin@maticdrive.com" 
                     target="_blank" 
                     rel="noreferrer"
@@ -219,7 +222,7 @@ const ContactUs = () => {
                   <img src={whatsappIcons} alt="whatsapp icons" className="md:w-8 md:h-8 w-7 h-7"/>
                 </div>
                 <div className="flex flex-col justify-center items-start">
-                  <div className="text-[16px] text-gray-400">Whatsapp No.</div>
+                  <div className="text-[16px] text-gray-500">Whatsapp No.</div>
                   <a href="https://wa.me/+2349055570782" 
                     target="_blank" 
                     rel="noreferrer"

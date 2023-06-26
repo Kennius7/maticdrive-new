@@ -30,7 +30,7 @@ function Navbar() {
         setActive("");
 
         return () => window.removeEventListener("scroll", onScroll);
-    }, [])
+    }, [setActive]);
 
 
     return (

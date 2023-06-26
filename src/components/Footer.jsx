@@ -6,7 +6,8 @@ import instagramIcon from "../assets/Minstagram.svg";
 import linkedInIcon from "../assets/Mlinkedin.svg";
 // import whatsappIcon from "../assets/Shield.svg";
 import youtubeIcon from "../assets/Myoutube.svg";
-import phoneIcon from "../assets/Discount.svg";
+import phoneIcon from "../assets/phone-icons-white.png";
+import emailIcon from "../assets/email-icons-white.png";
 import { NavContext } from "../context/NavContext";
 
 
@@ -78,8 +79,8 @@ function Footer() {
                                         target="_blank" 
                                         rel="noreferrer"
                                         className="sm:mb-0 mb-2 flex flex-row justify-start items-center">
-                                        <img src={phoneIcon} alt="phone" className="w-[15px] h-[15px] 
-                                            ss:w-[20px] ss:h-[20px]"/>
+                                        <img src={phoneIcon} alt="phone" 
+                                            className="w-[15px] h-[15px] ss:w-[20px] ss:h-[20px] sm:mr-2 mr-1"/>
                                         <span className="md:text-[15px] sm:text-[20px] xs:text-[13px] 
                                             text-[14px]">+2349055570782</span>
                                     </a>
@@ -87,8 +88,8 @@ function Footer() {
                                 <li className="sm:mb-2 ss:mb-2">
                                     <a href="mailto:admin@maticdrive.com" 
                                         className="flex flex-row justify-start items-center">
-                                        <img src={phoneIcon} alt="email" className="w-[15px] 
-                                            h-[15px] ss:w-[20px] ss:h-[20px]"/>
+                                        <img src={emailIcon} alt="email" 
+                                            className="w-[15px] h-[15px] ss:w-[20px] ss:h-[20px] sm:mr-2 mr-1"/>
                                         <span className={`md:text-[15px] sm:text-[20px] xs:text-[13px] 
                                             text-[15px] tracking-[-1px] xs:tracking-[0px]`}>
                                             admin@maticdrive.com
