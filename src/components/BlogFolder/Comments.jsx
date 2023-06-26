@@ -27,7 +27,7 @@ function Comments({id}) {
     
     const commentRefId = doc(db, `Posts/${id}/comments`, id);
     onSnapshot(commentRefId, (snapshot) => {
-        setIdItems([...snapshot.data().numCommentId]);
+        setIdItems([snapshot.data()]);
       });
     }, [id]);
     
