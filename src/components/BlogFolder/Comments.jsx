@@ -1,5 +1,4 @@
 import { arrayRemove, arrayUnion, doc, onSnapshot, updateDoc } from 'firebase/firestore';
-// import { onValue } from "firebase/database";
 import { useEffect, useState } from 'react';
 import { auth, db } from '../../../firebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -16,43 +15,22 @@ function Comments({id}) {
     const [currentlyLoggedInUser] = useAuthState(auth);
 
     const commentRef = doc(db, "Posts", id);
-    
     const revComments = [...comments].reverse();
-
-    const [idItems, setIdItems] = useState(null);
 
     useEffect(() => {
     const docRef = doc(db, "Posts", id);
     onSnapshot(docRef, (snapshot) => {setComments([...snapshot.data().comments])});
-    
-    const commentRefId = doc(db, `Posts/${id}/comments`, id);
-    onSnapshot(commentRefId, (snapshot) => {
-        setIdItems([snapshot.data()]);
-      });
     }, [id]);
     
-    const generateHighestId = async () => {
-        try {
-            // Retrieve the items from the Firebase database
-            
-            let numId;
-        
-            if (!idItems) {
-              // No items in the database yet
-              return numId = 0;
-            }
-        
-            // Extract the IDs and find the maximum value
-            // const ids = Object.keys(idItems);
-            const highestId = Math.max(...idItems);
-            numId = highestId + 1;
-        
-            return numId;
-
-          } catch (error) {
-            console.error('Error retrieving data:', error);
-            return null;
-          }
+    const generateHighestId = () => {
+        if (comments.length === 0) {
+            return 0
+        } 
+        if (comments.length > 0) {
+            const ids = comments.map(item => item.numCommentId);
+            const highestId = Math.max(...ids)
+            return (highestId + 1);
+        }
     }
 
     const handleChangeComment = () => {
@@ -128,7 +106,13 @@ function Comments({id}) {
                     ? <div className="text-start text-blue-700 text-[18px] font-semibold italic">No comments here...</div> 
                     : <div className="flex flex-col justify-center items-center w-[98%] min-h-[180px] 
                         rounded-[3px] m-2 bg-dimWhite">
-                        {revComments && revComments.map(({ commentId, user, comment, userName, createdAt }, index) => {
+                        {revComments && revComments.map(({ 
+                            commentId, 
+                            user, 
+                            comment, 
+                            userName, 
+                            createdAt, 
+                            numCommentId }, index) => {
                             console.log(index);
                             return (
                             <div key={index}
@@ -158,7 +142,8 @@ function Comments({id}) {
                                                         commentId, 
                                                         user, 
                                                         userName, 
-                                                        createdAt
+                                                        createdAt,
+                                                        numCommentId,
                                                         }) 
                                                     }} 
                                                 />
