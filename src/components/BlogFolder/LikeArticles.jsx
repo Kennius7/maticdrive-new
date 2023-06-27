@@ -39,7 +39,7 @@ function LikeArticles({ id, likes }) {
     }
 
   return (
-    <div className="flex justify-end items-center w-10">
+    <div className="flex justify-start items-center w-5">
         {user && !likes?.includes(user.uid) 
             ? (<img src={heartOutline} 
                     className="cursor-pointer md:w-[20px] md:h-[20px] xs:w-[18px] xs:h-[18px] w-[16px] h-[16px]" 

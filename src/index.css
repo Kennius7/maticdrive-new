@@ -278,6 +278,26 @@ button:focus-visible {
   text-shadow: 0 0 1px rgb(219, 189, 15);
 }
 
+.commentButton {
+  background-color: #0eb5f7;
+}
+
+.commentButton:hover {
+  background-color: #065270;
+}
+
+.commentButton:focus {
+  background-color: #04384d;
+}
+
+.commentButtonText{
+  text-shadow: 0 0 2px rgb(26, 30, 228);
+}
+
+.commentButtonText:hover{
+  text-shadow: 0 0 8px rgb(230, 19, 47);
+}
+
 
 
 /* //////////////////////////////////====CONTACT FORM CSS====///////////////////////////////////// */

@@ -144,8 +144,8 @@ function Navbar() {
                 </div>
 
 
-                <div className={`flex justify-center items-center text-primary font-bold rounded-[50%] 
-                    bg-text-gradient mr-2
+                <div className={`flex justify-center items-center text-primary hover:text-yellow-300 font-bold 
+                    rounded-[50%] duration-500 cursor-pointer bg-text-gradient mr-2
                     ${user ? "block" : "hidden"} 
                     ${scrolled 
                     ? "w-[25px] h-[25px] xs:w-[30px] xs:h-[30px] sm:w-[50px] sm:h-[50px] md:w-[28px] md:h-[28px] text-[13px] xs:text-[16px] sm:text-[28px] md:text-[14px]" 
