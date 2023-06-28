@@ -80,16 +80,22 @@ function Comments({id}) {
 
         <div className="w-full flex justify-start">
             { !currentlyLoggedInUser 
-                ?   <div className="text-[16px] text-primary mb-6 mt-20">Wanna write a comment? Click&nbsp;
+                ?   <div className="text-primary md:text-[18px] text-[17px] md:mb-14 mb-6 md:mt-20 mt-6">
+                        Wanna write a comment?&nbsp; 
+                        <br className="xs:hidden block"/>
+                        Click&nbsp;
                         <span onClick={()=>Navigate("/signin")} 
-                            className="text-blue-800 cursor-pointer hover:font-semibold focus:font-semibold">here
-                        </span> to sign in/sign up...
+                            className="text-blue-800 cursor-pointer hover:font-semibold 
+                                focus:font-semibold">here&nbsp;
+                        </span>
+                        to sign in/sign up...
                     </div>
                 : currentlyLoggedInUser && (
-                    <div className="w-full flex flex-col justify-center items-start mb-8">
+                    <div className="w-full flex flex-col justify-center items-start md:mb-14 
+                        xs:mb-10 mb-8 md:mt-20 xs:mt-10 mt-0">
 
-                        <label className="text-primary italic md:text-[16px] xs:text-[17px] text-[14px] 
-                            mb-2">Write Your Comments Here
+                        <label className="text-primary italic md:text-[16px] sm:text-[19px] xs:text-[17px] 
+                            text-[14px] mb-2">Write Your Comments Here
                         </label>
 
                         <textarea 
@@ -101,8 +107,9 @@ function Comments({id}) {
 
                         <button onClick={(e) => {handleChangeComment(e)}} 
                             className="text-white rounded-[3px] font-semibold text-start commentButton 
-                                commentButtonText duration-1000 md:w-[150px] xs:w-[40%] w-[45%] md:h-[40px] 
-                                xs:h-[45px] h-[35px] xs:text-[18px] text-[16px] md:pl-6 pl-3 md:mt-2 mt-4">
+                                commentButtonText duration-1000 md:w-[150px] sm:w-[30%] xs:w-[40%] w-[45%] 
+                                md:h-[40px] sm:h-[55px] xs:h-[45px] h-[35px] sm:text-[20px] xs:text-[18px] 
+                                text-[16px] md:pl-6 pl-3 md:mt-5 mt-4">
                                 Submit
                         </button>
 
@@ -140,7 +147,7 @@ function Comments({id}) {
                                     border border-primary/30 rounded-[3px] w-[98%] min-h-[100px] p-1`}>
 
                                 <div className="flex flex-col justify-start items-start md:text-[15px] 
-                                    xs:text-[14px] text-[13px] w-[99%] min-h-[100px]">
+                                    sm:text-[16px] xs:text-[15px] text-[14px] w-[99%] min-h-[100px]">
 
                                     <div className="flex xs:flex-row flex-col xs:justify-between justify-center 
                                         xs:items-center items-start w-full md:mb-2 mb-4">
@@ -148,13 +155,14 @@ function Comments({id}) {
                                         <span className={`${currentlyLoggedInUser 
                                             && user === currentlyLoggedInUser.uid 
                                             ? "text-blue-500" : "text-indigo-900"} 
-                                            font-semibold xs:underline no-underline md:text-[16px] text-[14px]`}>
+                                            font-semibold xs:underline no-underline md:text-[16px] 
+                                            sm:text-[15px] text-[14px]`}>
                                             { userName }
                                         </span>
 
                                         <span className="text-primary font-semibold xs:no-underline underline 
-                                            italic md:text-[12px] xs:text-[12px] text-[11px] md:mt-1 xs:mt-0 
-                                            -mt-1">
+                                            italic md:text-[12px] sm:text-[13px] xs:text-[12px] text-[11px] 
+                                            md:mt-1 xs:mt-0 -mt-1">
                                             Posted on:&nbsp;
                                             <span className="text-blue-800">
                                                 { createdAt.toDate().toDateString() }

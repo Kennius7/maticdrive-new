@@ -40,7 +40,7 @@ function Article() {
                                 xs:h-[800px] h-[500px]"/>
 
                         <div className="text-white flex flex-col justify-center items-center 
-                            sm:opacity-95 xs:opacity-85 opacity-80 absolute md:top-[65%] sm:top-[65%] 
+                            sm:opacity-90 xs:opacity-85 opacity-80 absolute md:top-[60%] sm:top-[65%] 
                             xs:top-[60%] top-[50%] md:left-[10%] left-[2%] md:w-[70%] sm:w-[80%] w-[90%]">
 
                             <div className="w-full text-start font-bold md:text-[30px] sm:text-[28px] 
@@ -53,7 +53,7 @@ function Article() {
                                 { article.description }
                             </div>
 
-                            <hr className="md:w-[60%] w-full bg-blue-500 border border-bg-dimWhite mt-4"/>
+                            <hr className="w-full bg-blue-500 border border-bg-dimWhite md:mt-6 mt-4"/>
 
                         </div>
                         
@@ -102,8 +102,8 @@ function Article() {
 
                                 </div>
                                 
-                                <div className="flex md:justify-around xs:justify-end justify-start 
-                                    items-center w-full xs:mt-1 -mt-2">
+                                <div className="flex xs:justify-end justify-start items-center w-full 
+                                    xs:mt-1 -mt-2">
 
                                     { user && (<LikeArticles id={id} likes={article.likes} />) }
 
@@ -118,17 +118,20 @@ function Article() {
                                     </div>
 
                                     <div className="flex justify-center items-center xs:ml-3 ml-2">
-                                        <div className="text-blue-700 italic md:text-[18px] text-[15px]">
+                                        <div className="text-blue-700 italic md:text-[18px] sm:text-[18px] 
+                                            text-[15px]">
                                             { article.comments.length }
                                         </div>
-                                        <div className="text-primary italic md:text-[16px] text-[14px]">&nbsp;Comment&#40;s&#41;</div>
+                                        <div className="text-primary italic md:text-[16px] sm:text-[18px] 
+                                            text-[14px]">&nbsp;Comment&#40;s&#41;
+                                        </div>
                                     </div>
 
                                 </div>
 
                             </div>
                             
-                            <div className="w-[95%] md:my-8 my-2 md:mt-0 mt-20">
+                            <div className="w-[95%] md:my-8 my-2 md:mt-0 mt-6">
                                 <Comments id={ article.id } />
                             </div>
 
