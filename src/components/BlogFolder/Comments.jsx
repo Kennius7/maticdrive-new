@@ -87,25 +87,32 @@ function Comments({id}) {
                     </div>
                 : currentlyLoggedInUser && (
                     <div className="w-full flex flex-col justify-center items-start mb-8">
-                        <label className="text-primary md:text-[16px] text-[14px] italic mb-2">Write Your Comments Here</label>
+
+                        <label className="text-primary italic md:text-[16px] xs:text-[17px] text-[14px] 
+                            mb-2">Write Your Comments Here
+                        </label>
+
                         <textarea 
-                        type="text" 
-                        className="bg-white text-gray-500 w-[90%] h-[100px] rounded-[3px]" 
-                        value={comment} 
-                        onChange={(e) => { setComment(e.target.value) }}
-                        />
+                            type="text" 
+                            className="bg-white text-gray-500 rounded-[3px] xs:w-[80%] xs:h-[150px] 
+                                w-[90%] h-[100px]"
+                            value={comment} 
+                            onChange={(e) => { setComment(e.target.value) }} />
+
                         <button onClick={(e) => {handleChangeComment(e)}} 
-                            className="text-white rounded-[3px] font-semibold text-start
-                                commentButton commentButtonText duration-1000
-                                md:w-[150px] w-[50%] md:h-[40px] h-[35px] md:pl-6 pl-3 md:mt-2 mt-4">Submit
+                            className="text-white rounded-[3px] font-semibold text-start commentButton 
+                                commentButtonText duration-1000 md:w-[150px] xs:w-[40%] w-[45%] md:h-[40px] 
+                                xs:h-[45px] h-[35px] xs:text-[18px] text-[16px] md:pl-6 pl-3 md:mt-2 mt-4">
+                                Submit
                         </button>
+
                     </div>
                     
                 )
             }
         </div>
 
-        <div className="text-primary font-semibold md:text-[25px] text-[17px] md:mb-2 mb-1">
+        <div className="text-primary font-semibold md:text-[25px] xs:text-[20px] text-[17px] md:mb-2 mb-1">
             Comments
         </div>
 
@@ -125,40 +132,47 @@ function Comments({id}) {
                             userName, 
                             createdAt, 
                             numCommentId }) => {
-                            console.log(numCommentId);
                             return (
                             <div key={numCommentId}
                                 className={`${numCommentId === revComments.length - 1 
                                     ? "md:my-3 my-2" : "md:mb-3 mb-2"}
                                     flex flex-row justify-between items-center relative bg-transparent 
-                                    border border-primary rounded-[3px] w-[98%] min-h-[100px] p-1`}>
+                                    border border-primary/30 rounded-[3px] w-[98%] min-h-[100px] p-1`}>
 
                                 <div className="flex flex-col justify-start items-start md:text-[15px] 
-                                    text-[13px] w-[99%] min-h-[100px]">
-                                    <div className="flex md:flex-row flex-col md:justify-between justify-center 
-                                        md:items-center items-start w-full md:mb-2 mb-4">
+                                    xs:text-[14px] text-[13px] w-[99%] min-h-[100px]">
+
+                                    <div className="flex xs:flex-row flex-col xs:justify-between justify-center 
+                                        xs:items-center items-start w-full md:mb-2 mb-4">
+
                                         <span className={`${currentlyLoggedInUser 
                                             && user === currentlyLoggedInUser.uid 
                                             ? "text-blue-500" : "text-indigo-900"} 
-                                            font-semibold md:underline no-underline md:text-[16px] text-[14px]`}>
+                                            font-semibold xs:underline no-underline md:text-[16px] text-[14px]`}>
                                             { userName }
                                         </span>
-                                        <span className="text-primary font-semibold md:no-underline underline 
-                                            md:text-[12px] text-[11px] md:mt-1 -mt-1">
-                                            Posted on:&nbsp;<span className="text-blue-800">
-                                            { createdAt.toDate().toDateString() }
+
+                                        <span className="text-primary font-semibold xs:no-underline underline 
+                                            italic md:text-[12px] xs:text-[12px] text-[11px] md:mt-1 xs:mt-0 
+                                            -mt-1">
+                                            Posted on:&nbsp;
+                                            <span className="text-blue-800">
+                                                { createdAt.toDate().toDateString() }
                                             </span>
                                         </span>
+
                                     </div>
                                     { comment }
                                 </div>
                                 
                                 <div className={`flex justify-center items-center absolute z-[1] bottom-[0%] 
-                                    right-[0%] md:w-[20px] w-[17px] md:h-[20px] h-[17px] 
+                                    right-[0%] bg-red-400/30 rounded-[3px] xs:w-[20px] w-[17px] 
+                                    xs:h-[20px] h-[17px] 
                                     ${!currentlyLoggedInUser ? "hidden" : "" }`}>
+
                                     {
                                         currentlyLoggedInUser && user === currentlyLoggedInUser.uid && (
-                                            <div className="flex justify-end items-center w-[98%] h-[98%]">
+                                            <div className="flex justify-center items-center w-[98%] h-[98%]">
                                                 <img src={crossBlack} alt="delete comment" 
                                                     className="cursor-pointer w-[80%] h-[80%]" 
                                                     onClick={() => { handleDeleteComment({ 
@@ -174,6 +188,7 @@ function Comments({id}) {
                                             </div>
                                         )
                                     }
+
                                 </div>
 
                             </div>
